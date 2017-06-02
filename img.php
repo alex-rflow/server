@@ -12,7 +12,7 @@ $UsersLastName = $GroupMembersResult['response']['users'][0]['last_name'];
 $UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_100'];
 //--------Самое интересное - рисование------------
 // Фоновая картинка
-$im = @ImageCreateFromJPEG ($path.'header/day_bg.jpg');
+$im = @ImageCreateFromJPEG ($path.'tmp.jpg');
 // Аватар пользователя
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 // Цвет текста
