@@ -20,7 +20,8 @@ $white = @imagecolorallocate($im, 255,255,255);
 // Время
 $time = date("H:i:s");
 // Вывод последнего пользователя
-@imagecopy($im, $stamp, 653, 50, 0, 0, imagesx($stamp), imagesy($stamp));
+
+@imagecopy($im, $stamp, 1336, 45, 0, 0, imagesx($stamp), imagesy($stamp));
 // Вывод имени
 @imagettftext($im, 10, 0, 625, 25, $white, $path.'fonts/open-sans-bold.ttf',$UsersName);
 // Вывод фамилии
