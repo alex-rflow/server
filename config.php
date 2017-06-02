@@ -6,6 +6,6 @@ $token = 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e
 //ID группы
 $GroupId = '142528981';
 // временная зона
-$TimeZone = 'Asia/Novosibirsk';
+$TimeZone = 'Asia/Moskow';
 // тут вани настройки
 ?>
