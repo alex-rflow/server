@@ -20,14 +20,13 @@ $white = @imagecolorallocate($im, 255,255,255);
 // Время
 $time = date("H:i:s");
 // Вывод последнего пользователя
+@imagettftext($im, 10, 0, 20, 185, $white, $path.'fonts/open-sans-bold.ttf',$time);
 @imagecopy($im, $stamp, 1336, 45, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
 @imagettftext($im, $stamp, 1336, 70, 25, $white, $path.'fonts/open-sans-bold.ttf',$UsersName);
 // Вывод фамилии
 @imagettftext($im, $stamp, 1336, 90, 38, $white, $path.'fonts/open-sans-bold.ttf',$UsersLastName);
-// Вывод времени
-@imagettftext($im, 10, 0, 20, 185, $white, $path.'fonts/open-sans-bold.ttf',$time);
 //На этом все почти:)
 // успешно загружено
 imagejpeg($im, NULL, 100);
