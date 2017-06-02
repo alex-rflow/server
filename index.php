@@ -4,7 +4,7 @@
 ini_set('display_errors', 1);
 
 require_once('config.php');
-$tmp_image = file_get_contents('http://89.223.25.199/server/img.php');
+$tmp_image = file_get_contents('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'img.php');
 file_put_contents('tmp.jpg',$tmp_image);
 $cover_path = dirname(__FILE__).'/tmp.jpg';
 $post_data = array('photo' =>  new CURLFile($cover_path, 'image/jpeg', 'image0'));
