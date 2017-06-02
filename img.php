@@ -20,7 +20,6 @@ $white = @imagecolorallocate($im, 255,255,255);
 // Время
 $time = date("H:i:s");
 // Вывод последнего пользователя
-RoundingOff($stamp, 1336,45);
 @imagecopy($im, $stamp, 1336, 45, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
