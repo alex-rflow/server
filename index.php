@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 //VK API Динамическая обложка вк - Как сделать динамическую обложку в группе вконтакте php скрипт бесплатно
 require_once('config.php');
-$tmp_image = file_get_contents('http://http://89.223.25.199/server/img.php');
+$tmp_image = file_get_contents('http://89.223.25.199/server/img.php');
 file_put_contents('cover/tmp.jpg',$tmp_image);
 $cover_path = dirname(__FILE__).'/cover/tmp.jpg';
 $post_data = array('photo' => "@$cover_path;'image/jpeg';'image0'");
