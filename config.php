@@ -19,10 +19,10 @@
 */
 
 // Здесь вводим токен. Получить можно здесь https://oauth.vk.com/authorize?client_id=6015325&scope=friends,photos,audio,video,docs,notes,pages,status,offers,questions,wall,groups,messages,notifications,stats,ads,market,offline&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&v=5.63
-$access_token = '';
+$access_token = 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e6270a29967cb587';
 
 // ID группы
-$group_id = '';
+$group_id = '142528981';
 
 // Круглые аватарки [true - круглые false - квадратные]
 $roundingOff = true;
