@@ -1,12 +1,12 @@
 <?php
 //VK API Динамическая обложка вк - Как сделать динамическую обложку в группе вконтакте php скрипт бесплатно
 require_once('config.php');
-// $tmp_image = file_get_contents('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'img.php');
-// file_put_contents('cover/tmp.jpg',$tmp_image);
-// $cover_path = dirname(__FILE__).'/cover/tmp.jpg';
-// $post_data = array('photo' => new CURLFile($cover_path, 'image/jpeg', 'image0'));
-// $upload_url = file_get_contents("https://api.vk.com/method/photos.getOwnerCoverPhotoUploadServer?group_id=".$GroupId."&crop_x2=1590&access_token=".$token);
-// $url = json_decode($upload_url)->response->upload_url;
+$tmp_image = file_get_contents('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'img.php');
+file_put_contents('cover/tmp.jpg',$tmp_image);
+$cover_path = dirname(__FILE__).'/cover/tmp.jpg';
+$post_data = array('photo' => new CURLFile($cover_path, 'image/jpeg', 'image0'));
+$upload_url = file_get_contents("https://api.vk.com/method/photos.getOwnerCoverPhotoUploadServer?group_id=".$GroupId."&crop_x2=1590&access_token=".$token);
+$url = json_decode($upload_url)->response->upload_url;
 // $ch = curl_init();
 // curl_setopt($ch, CURLOPT_URL, $url);
 // curl_setopt($ch, CURLOPT_POST, true);
