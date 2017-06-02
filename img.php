@@ -12,6 +12,7 @@ $UsersLastName = $GroupMembersResult['response']['users'][0]['last_name'];
 $UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_100'];
 //--------Самое интересное - рисование------------
 // Фоновая картинка
+date_default_timezone_set("Europe/Moscow");
 $im = @ImageCreateFromJPEG ($path.'header/day_bg.jpg');
 // Аватар пользователя
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
