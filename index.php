@@ -37,7 +37,7 @@ echo '<b style="color: #16a085;">-----------------------------------------------
 $date_today = date('Ymd');
 
 if($show_top_like or $show_top_comments) {
-    print_r('Получаю посты группы');
+    echo('Получаю посты группы');
     // Получим посты со стены
     // больше 100 постов получать нет смысла, так как в вк ограничение
     // разрешено постить не больше 50 постов в сутки.
@@ -46,7 +46,7 @@ if($show_top_like or $show_top_comments) {
         'count' => '100'
     ));
     
-    print_r('Ответ сервера #1 '.$wall_get);
+    echo('Ответ сервера #1 '.$wall_get);
 
     if($wall_get) {
         $wall_get = json_decode($wall_get, true);
@@ -65,7 +65,7 @@ if($show_top_like or $show_top_comments) {
             if($count > 0) { 
                 // Получим все комментарии, так как их может быть больше 100.
                 while($offset < $count) {
-                    print_r('Получаю кол-во комментариев к посту '.$wall['id']);
+                    echo('Получаю кол-во комментариев к посту '.$wall['id']);
                     // Отправим запрос на получение комментариев
                     $comments_get = getApiMethod('wall.getComments', array( 
                         'owner_id' => '-'.$group_id,
@@ -113,8 +113,8 @@ if($show_top_like) {
         // Теперь найдем кто суммарно получил большее кол-во лайков к комментариям
         $value = max($countlike); 
         $day_like_top = array_search($value, $countlike);
-        print_r('COUNT LIKE: '.$countlike[$day_like_top]);
-        print_r('Получаю ID кто сумарно набрал большее кол-во лайков к комментариям '.$day_like_top);
+        echo('COUNT LIKE: '.$countlike[$day_like_top]);
+        echo('Получаю ID кто сумарно набрал большее кол-во лайков к комментариям '.$day_like_top);
 
         sleep(5);
 
@@ -124,7 +124,7 @@ if($show_top_like) {
                 'fields' => 'photo_200'
             ));
 
-            print_r('Ответ сервера #3 '.$user_top_like);
+            echo('Ответ сервера #3 '.$user_top_like);
 
             if($user_top_like) {
                 $user_top_like = json_decode($user_top_like, true);
@@ -133,7 +133,7 @@ if($show_top_like) {
                 $top_like_lastname = $user_top_like['response'][0]['last_name'];
                 $top_like_photo = $user_top_like['response'][0]['photo_200'];
                 
-                print_r('И.Ф Лайки: '.$top_like_name.' '.$top_like_lastname);
+                echo('И.Ф Лайки: '.$top_like_name.' '.$top_like_lastname);
                 echo '<p>*** Больше всех сегодня лайков набрал: '.$top_like_name.' '.$top_like_lastname.' - '.$countlike[$day_like_top].' шт.</p></br>';
                 // Скачиваем фото
                 if(!empty($top_like_name) && !empty($top_like_lastname) && !empty($top_like_photo)){
@@ -150,8 +150,8 @@ if($show_top_comments) {
         // Теперь найдем кто суммарно написал больше всех комментариев
         $value = max($countcomments); 
         $day_comment_top = array_search($value, $countcomments);
-        print_r('COUNT COMMENT: '.$countcomments[$day_comment_top]);
-        print_r('Получаю ID кто суммарно написал больше всех комментариев '.$day_comment_top);
+        echo('COUNT COMMENT: '.$countcomments[$day_comment_top]);
+        echo('Получаю ID кто суммарно написал больше всех комментариев '.$day_comment_top);
         
         
         sleep(5);
@@ -162,7 +162,7 @@ if($show_top_comments) {
                 'fields' => 'photo_200'
             ));
 
-            print_r('Ответ сервера #4 '.$user_top_comment);
+            echo('Ответ сервера #4 '.$user_top_comment);
 
             if($user_top_comment) {
                 $user_top_comment = json_decode($user_top_comment, true);
@@ -171,7 +171,7 @@ if($show_top_comments) {
                 $top_comment_lastname = $user_top_comment['response'][0]['last_name'];
                 $top_comment_photo = $user_top_comment['response'][0]['photo_200'];
                 
-                print_r('И.Ф Комменты: '.$top_comment_name.' '.$top_comment_lastname);
+                echo('И.Ф Комменты: '.$top_comment_name.' '.$top_comment_lastname);
                 echo '<p>*** Больше всех сегодня комментариев написал: '.$top_comment_name.' '.$top_comment_lastname.' - '.$countcomments[$day_comment_top].' шт.</p></br>';
                 // Скачиваем фото
                 if(!empty($top_comment_name) && !empty($top_comment_lastname) && !empty($top_comment_photo)){
@@ -193,7 +193,7 @@ if($show_last_subscribe) {
                 'access_token' => $access_token
             ));
 
-    print_r('Ответ сервера #5 '.$last_subscribe);
+    echo('Ответ сервера #5 '.$last_subscribe);
 
     if($last_subscribe) {
         $last_subscribe = json_decode($last_subscribe, true);
@@ -203,7 +203,7 @@ if($show_last_subscribe) {
         $last_subscribe_lastname = $last_subscribe['response']['items'][0]['last_name'];
         $last_subscribe_photo = $last_subscribe['response']['items'][0]['photo_200'];
 
-        print_r('Получаю последнего вступившего в группу: '.$last_subscribe_firstname.' '.$last_subscribe_lastname);
+        echo('Получаю последнего вступившего в группу: '.$last_subscribe_firstname.' '.$last_subscribe_lastname);
         echo '<p>*** Последний подписчик '.$last_subscribe_firstname.' '.$last_subscribe_lastname.'</p></br>';
         // Скачиваем фото
         if(!empty($last_subscribe_firstname) && !empty($last_subscribe_lastname) && !empty($last_subscribe_photo)){
@@ -218,14 +218,14 @@ timeCountdown();
 // -----------------------------------------------------------------------------
 // --------------------------------- РИСОВАНИЕ ---------------------------------
 // -----------------------------------------------------------------------------
-print_r('Рисую обложку');
+echo('Рисую обложку');
 
 $draw = new ImagickDraw(); 
 
 if(file_exists(BASEPATH.timeToDayBg())) {
     $bg = new Imagick(BASEPATH.timeToDayBg());
 } else {
-    print_r('ОШИБКА! Не найден '.BASEPATH.timeToDayBg().' Загрузите файл либо отключите $show_time_of_day в config.php');
+    echo('ОШИБКА! Не найден '.BASEPATH.timeToDayBg().' Загрузите файл либо отключите $show_time_of_day в config.php');
     print_r('ОШИБКА! Не найдена обложка, смотрите logs.txt');
     exit;
 }
@@ -315,7 +315,7 @@ $getUrl = getApiMethod('photos.getOwnerCoverPhotoUploadServer', array(
     'group_id' => $group_id,
     'crop_x2' => '1590'
 ));
-print_r('Получаю адресс сервера '.$getUrl);
+echo('Получаю адресс сервера '.$getUrl);
 
 if($getUrl) {
     $getUrl = json_decode($getUrl, true);
@@ -340,15 +340,15 @@ if($getUrl) {
             'photo' => $upload['photo'],
         ));
         
-        print_r('Загружаю обложку '.$getUrl);
+        echo('Загружаю обложку '.$getUrl);
 
         if(stripos($getUrl, 'response":{"images":[{')) {
             print_r('<p>*** Успешно загрузили обложку в группу</p></br>');
             echo '<img src="'.'header/output.png'.'" width="795" height="200">';
-            print_r('Загружаю обложку в '.$group_id);
+            echo('Загружаю обложку в '.$group_id);
         } else {
             print_r('Ошибка при загрузке обложки '.$getUrl);
-            print_r('Ошибка при загрузке обложки '.$getUrl);
+            echo('Ошибка при загрузке обложки '.$getUrl);
         }
         
     }
