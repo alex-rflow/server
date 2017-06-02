@@ -1,0 +1,31 @@
+body {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #34495e;
+    font-family: "Lato", sans-serif;
+}
+
+h3,h2,h1,h4,p,b {
+    font-size: 12px;
+    line-height: 2px;
+    color: #16a085;
+}
+
+a {
+outline: none;
+text-decoration: none;
+padding: 2px 1px 0;
+}
+
+a:link {
+color: #FF662E;
+}
+
+a:visited {
+color: #FF662E;
+}
+
+a:active {
+color: #FF662E;
+}
