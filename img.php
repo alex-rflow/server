@@ -32,4 +32,6 @@ $time = date("H:i:s");
 // успешно загружено
 imagejpeg($im, NULL, 100);
 imagedestroy($im);
+
+echo "<b style='margin: 20px;'>Hello world</b>";
 ?>
