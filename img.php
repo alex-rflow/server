@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 require_once('config.php');
 //Узнаем кто последний зашел в группу
-$GroupMembers = file_get_contents("https://api.vk.com/method/groups.getMembers?group_id=142528981&sort=time_desc&count=1&fields=photo_200&access_token=".$token);
+$GroupMembers = file_get_contents("https://api.vk.com/method/groups.getMembers?group_id=142528981&sort=time_desc&count=1&fields=photo_100&access_token=".$token);
 $GroupMembersResult = json_decode($GroupMembers, true);
 //print_r($GroupMembersResult);
 // Информация о последнем вступившем
@@ -30,6 +30,9 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 imagejpeg($stamp, 'user.jpg');
 $stamp1 = new Imagick('user.jpg');
+if(!empty($last_subscribe_firstname) && !empty($last_subscribe_lastname) && !empty($last_subscribe_photo)){
+            DownloadImages($last_subscribe_photo, 'user.jpg');
+        }
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
