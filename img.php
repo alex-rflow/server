@@ -51,11 +51,11 @@ $time = date("H:i");
 // Вывод последнего пользователя
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
-RoundingOff($last_subscribe_photo, 100,100);
+RoundingOff($last_subscribe_photo, 200,200);
 file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $user, 730, 120, 0, 0, 100, 100);
+@imagecopy($im, $user, 730, 120, 0, 0, 200, 200);
 // Вывод имени
 @imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$last_subscribe_firstname . ' ' . $last_subscribe_lastname);
 // Вывод фамилии
