@@ -60,7 +60,7 @@ if($wall_get) {
                     'sort' => 'desc'
                 ));
             
-            $last_coment = getApiMethod('groups.getMembers', array(
+            $last_coment = getApiMethod('users.get', array(
 	            'user_ids' => $last['from_id'],
 	            'fields' => 'photo_200,first_name,last_name',
 	            'access_token' => $token
