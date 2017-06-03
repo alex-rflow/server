@@ -82,11 +82,11 @@ if($wall_get) {
 }
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 98);
+    $_imagick->adaptiveResizeImage($width, $height, 99);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(
-        98, 98, 0, 0, 0
+        99, 99, 0, 0, 0
     );
 }
 
@@ -174,7 +174,7 @@ else
 
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
-RoundingOff($last_subscribe_photo, 98,98);
+RoundingOff($last_subscribe_photo, 99,99);
 file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
@@ -182,11 +182,11 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 
 $file_name2 = 'header/last_coment_user.jpg';
 $last_coment_user_photo = new Imagick($file_name2);
-RoundingOff($last_coment_user_photo, 98,98);
+RoundingOff($last_coment_user_photo, 99,99);
 file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
 $user2 = @ImageCreateFromPNG($path.'header/last_coment_user.png');
-@imagecopy($im, $user2, 517, 104, 0, 0, 98, 98);
-@imagecopy($im, $user, 971, 104, 0, 0, 98, 98);
+@imagecopy($im, $user2, 517, 104, 0, 0, 99, 99);
+@imagecopy($im, $user, 971, 104, 0, 0, 99, 99);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
@@ -209,7 +209,7 @@ $font2 = 'Tahoma.ttf';
 // file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 // $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 // @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-// @imagecopy($im, $user, 725, 98, 0, 0, 140, 140);
+// @imagecopy($im, $user, 725, 99, 0, 0, 140, 140);
 // // Вывод имени
 
 // $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
