@@ -57,11 +57,11 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $user, 725, 97, 0, 0, 140, 140);
 // Вывод имени
-$font = $path.'font/Tahoma.ttf';
+$font = 'font/Tahoma.ttf';
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
 $fontwidth = imagefontwidth($font);
 
-$center = (imagesx($im)/2) - (14*strlen($text)/2);
+$center = (imagesx($im)/2) - (14*(strlen($text)/2));
 
 // Adds the text to the image
 
