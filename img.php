@@ -196,7 +196,7 @@ $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
 
 // Adds the text to the image
 $font2 = 'Tahoma.ttf';
-@imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
+@imagettftext($im, 20, 0, 1091, 185, $white, 'font/Gotham.ttf', $text);
 @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
 
 //-------------------------------------------------------------------------------------------------------------------------
