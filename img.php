@@ -185,8 +185,8 @@ $last_coment_user_photo = new Imagick($file_name2);
 RoundingOff($last_coment_user_photo, 98,98);
 file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
 $user2 = @ImageCreateFromPNG($path.'header/last_coment_user.png');
-@imagecopy($im, $user2, 517.5, 104, 0, 0, 98, 98);
-@imagecopy($im, $user, 971.5, 104, 0, 0, 98, 98);
+@imagecopy($im, $user2, 517, 104, 0, 0, 98, 98);
+@imagecopy($im, $user, 971, 104, 0, 0, 98, 98);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
