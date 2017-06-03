@@ -43,7 +43,7 @@ if($wall_get) {
 print_r($wall_get);
     //checkApiError($wall_get);
     
-    foreach($wall_get['response']['items'] as $wall) {
+    foreach($wall_get['response'][1] as $wall) {
         
         // Получим кол-во комментариев к посту
         $count = $wall['comments']['count'];
