@@ -61,14 +61,19 @@ $font = 'font/Tahoma.ttf';
 $text = 'Максим Соков';
 $fontwidth = imagefontwidth($font);
 
+$center = (imagesx($im)/2) - (7*strlen($text));
+
 // Adds the text to the image
 
-$bbox = imagettfbbox(85, 0, $font, $txt);
-$center1 = (imagesx($im) / 2) - (($bbox[2] - $bbox[0]) / 2);
+@imagettftext($im, 20, 0, $center, 350, $white, $font, $text);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
 // успешно загружено
 imagejpeg($im, NULL, 100);
 imagedestroy($im);
+
+
+
+echo "<b style='margin: 20px;'>Hello world</b>";
 ?>
