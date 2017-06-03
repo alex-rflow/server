@@ -11,7 +11,7 @@ $GroupMembersResult = json_decode($GroupMembers, true);
 $Users_Count = $GroupMembersResult['response']['count'];
 $UsersName = $GroupMembersResult['response']['users'][0]['first_name'];
 $UsersLastName = $GroupMembersResult['response']['users'][0]['last_name'];
-$UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_100'];
+$UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_200'];
 //--------Самое интересное - рисование------------
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
@@ -30,13 +30,12 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 imagejpeg($stamp, 'user.jpg');
 $stamp1 = new Imagick('user.jpg');
-DownloadImages($last_subscribe_photo, 'user.jpg');
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 // Вывод последнего пользователя
-RoundingOff($last_subscribe_photo, imagesx($stamp),imagesy($stamp));
+RoundingOff($UsersPhoto, imagesx($stamp),imagesy($stamp));
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $last_subscribe_photo, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
