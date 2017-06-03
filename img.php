@@ -107,7 +107,7 @@ $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['respons
 $fontwidth = imagefontwidth($font);
 
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
-$center2 = (imagesx($im)/2) - (4*iconv_strlen($text2,'UTF-8'));
+$center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
 
 // Adds the text to the image
 
