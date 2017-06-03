@@ -73,7 +73,42 @@ $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 imagejpeg($im, NULL, 100);
 imagedestroy($im);
 
+// Получим посты со стены
+// больше 100 постов получать нет смысла, так как в вк ограничение
+// разрешено постить не больше 50 постов в сутки.
+$wall_get = getApiMethod('wall.get', array(
+    'owner_id' => '-'.$group_id,
+    'count' => '100'
+));
 
+if($wall_get) {
+    $wall_get = json_decode($wall_get, true);
 
-echo "<b style='margin: 20px;'>Hello world</b>";
+    //checkApiError($wall_get);
+
+    $countlike = array();
+    $countcomments = array();
+    
+    foreach($wall_get['response']['items'] as $wall) {
+        
+        // Получим кол-во комментариев к посту
+        $count = $wall['comments']['count'];
+        $offset = 0;
+
+        if($count > 0) { 
+            // Получим все комментарии, так как их может быть больше 100.
+           $last = getApiMethod('wall.getComments', array( 
+                    'owner_id' => '-'.$group_id,
+                    'post_id' => $wall['id'],
+                    'need_likes' => '1',
+                    'count' => '1',
+                    'offset' => $offset
+                ));
+            }
+            echo 'console.log(' . $last . ')';
+            return 0;
+        }
+
+    }
+}
 ?>
