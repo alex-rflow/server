@@ -47,11 +47,6 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 // Аватар пользователя
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 imagejpeg($stamp, 'user.jpg');
-$stamp1 = new Imagick('user.jpg');
-$last_subscribe_photo = $UsersPhoto;
-if(!empty($last_subscribe_photo)){
-    DownloadImages($last_subscribe_photo, 'user.jpg');
-}
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
