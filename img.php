@@ -95,7 +95,8 @@ $im = @ImageCreateFromPNG ($path.'header/header-2.png');
 
 // Аватар пользователя
 // Цвет текста
-$white = @imagecolorallocate($im, 39,39,39);
+// $white = @imagecolorallocate($im, 39,39,39);
+$white = @imagecolorallocate($im, 255,255,255);
 // Время
 $time = date("H:i");
 
