@@ -108,8 +108,7 @@ $font = 'Tahoma.ttf';
 //$align = "right";
 
 // Создаем цвета, которые понадобятся
-$blue	= imagecolorallocate($im, 0x88, 0x88, 0xFF);	// голубой
-$black	= imagecolorallocate($im, 0x00, 0x00, 0x00);	// черный
+$black	= @imagecolorallocate($im, 0x00, 0x00, 0x00);	// черный
 
 // Заливаем изображение цветом
 
@@ -128,7 +127,7 @@ foreach($arr as $word)
 		$tmp_string = $ret.' '.$word;
 		
 		// Получение параметров рамки обрамляющей текст, т.е. размер временной строки 
-		$textbox = imagettfbbox($font_size, 0, $font, $tmp_string);
+		$textbox = @imagettfbbox($font_size, 0, $font, $tmp_string);
 		
 		// Если временная строка не укладывается в нужные нам границы, то делаем перенос строки, иначе добавляем еще одно слово
 		if($textbox[2] > $width_text)
@@ -140,7 +139,7 @@ foreach($arr as $word)
 if($align=="left")
 	{	
 		// Накладываем возращенный многострочный текст на изображение, отступим сверху и слева по 50px
-		imagettftext($im, $font_size ,0 , 50, 50, $black, $font, $ret);
+		@imagettftext($im, $font_size ,0 , 50, 50, $black, $font, $ret);
 	}
 else
 	{
@@ -154,7 +153,7 @@ else
 		foreach($arr as $str)
 			{
 				// Размер строки 
-				$testbox = imagettfbbox($font_size, 0, $font, $str);
+				$testbox = @imagettfbbox($font_size, 0, $font, $str);
 				
 				// Рассчитываем смещение
 				if($align=="center")
@@ -163,7 +162,7 @@ else
 					$left_x = round($width_text - ($testbox[2] - $testbox[0]));
 					
 				// Накладываем текст на картинку с учетом смещений
-				imagettftext($im, $font_size ,0 , 50 + $left_x, 50 + $height_tmp, $black, $font, $str); // 50 - это отступы от края
+				@imagettftext($im, $font_size ,0 , 50 + $left_x, 50 + $height_tmp, $black, $font, $str); // 50 - это отступы от края
 				
 				// Смещение высоты для следующей строки
 				$height_tmp = $height_tmp + 19;
