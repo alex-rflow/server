@@ -32,7 +32,7 @@ if($last_subscribe) {
 // больше 100 постов получать нет смысла, так как в вк ограничение
 // разрешено постить не больше 50 постов в сутки.
 $wall_get = getApiMethod('wall.get', array(
-    'owner_id' => $group_id,
+    'owner_id' => '-'.$GroupId,
     'count' => '100'
 ));
 print_r($wall_get);
@@ -50,7 +50,7 @@ if($wall_get) {
         if($count > 0) { 
             // Получим все комментарии, так как их может быть больше 100.
            $last = getApiMethod('wall.getComments', array( 
-                    'owner_id' => '-'.$group_id,
+                    'owner_id' => '-'.$GroupId,
                     'post_id' => $wall['id'],
                     'need_likes' => '1',
                     'count' => '1',
