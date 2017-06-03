@@ -112,7 +112,7 @@ $center2 = (imagesx($im)/2) - (7.5*iconv_strlen($text2,'UTF-8'));
 // Adds the text to the image
 
 @imagettftext($im, 20, 0, $center, 350, $white, $font, $text);
-@imagettftext($im, 20, 0, $center2, 370, $white, $font, $text2);
+@imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
