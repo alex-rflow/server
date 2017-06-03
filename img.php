@@ -52,8 +52,9 @@ $time = date("H:i");
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
 RoundingOff($last_subscribe_photo, 100,100);
+$user = @ImageCreateFromJPEG ($last_subscribe_photo);
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $last_subscribe_photo, 730, 120, 0, 0, 100, 100);
+@imagecopy($im, $user, 730, 120, 0, 0, 100, 100);
 // Вывод имени
 @imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$last_subscribe_firstname . ' ' . $last_subscribe_lastname);
 // Вывод фамилии
