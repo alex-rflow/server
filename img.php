@@ -39,7 +39,7 @@ $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 // Вывод последнего пользователя
-RoundingOff($UsersPhoto, imagesx($stamp),imagesy($stamp));
+RoundingOff($last_subscribe_photo, imagesx($stamp),imagesy($stamp));
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $last_subscribe_photo, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
