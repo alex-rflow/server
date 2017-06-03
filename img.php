@@ -61,7 +61,7 @@ if($wall_get) {
                 ));
             sleep(5);
             $last_coment = getApiMethod('users.get', array(
-	            'user_ids' => $last['from_id'],
+	            'user_ids' => $last['response']['from_id'],
 	            'fields' => 'photo_200,first_name,last_name',
 	            'access_token' => $token
 	        ));
