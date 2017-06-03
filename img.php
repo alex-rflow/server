@@ -102,7 +102,7 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 // Вывод имени
 $font = 'font/Tahoma.ttf';
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
-$text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last['response'][0]['text'];
+$text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last['response']['text'];
 $fontwidth = imagefontwidth($font);
 
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
