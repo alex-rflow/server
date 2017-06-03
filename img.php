@@ -59,6 +59,7 @@ if($wall_get) {
                     'access_token' => $token,
                     'sort' => 'desc'
                 ));
+           $last = json_decode($last, true);
             sleep(5);
             $last_coment = getApiMethod('users.get', array(
 	            'user_ids' => $last['response']['from_id'],
