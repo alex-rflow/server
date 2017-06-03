@@ -61,7 +61,7 @@ $font = $path.'font/Tahoma.ttf';
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
 $fontwidth = imagefontwidth($font);
 
-$center = (imagesx($im)/2) - (15*strlen($text)/2);
+$center = (imagesx($im)/2) - (14*strlen($text)/2);
 
 // Adds the text to the image
 
