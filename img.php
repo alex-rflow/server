@@ -82,11 +82,11 @@ if($wall_get) {
 }
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 100);
+    $_imagick->adaptiveResizeImage($width, $height, 99);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(
-        100, 100, 0, 0, 0
+        99, 99, 0, 0, 0
     );
 }
 
