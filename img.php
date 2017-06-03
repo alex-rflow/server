@@ -46,7 +46,6 @@ if($wall_get) {
         
         // Получим кол-во комментариев к посту
         $count = $wall['comments']['count'];
-        print_r($count);
         $offset = 0;
         if($count > 0) { 
             // Получим все комментарии, так как их может быть больше 100.
@@ -66,6 +65,7 @@ if($wall_get) {
 	            'fields' => 'photo_200,first_name,last_name',
 	            'access_token' => $token
 	        ));
+	        $last_coment = json_decode($last_coment, true);
 	        print_r($last_coment);
             break;
         }
@@ -103,6 +103,7 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 // Вывод имени
 $font = 'font/Tahoma.ttf';
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
+$text2 = $last_coment['responce']['first_name'] . ' ' . $last_coment['responce']['last_name'] . ' - ' . $last['responce']['text'];
 $fontwidth = imagefontwidth($font);
 
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
@@ -110,6 +111,7 @@ $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 // Adds the text to the image
 
 @imagettftext($im, 20, 0, $center, 350, $white, $font, $text);
+@imagettftext($im, 20, 0, $center, 370, $white, $font, $text);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
