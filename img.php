@@ -38,7 +38,7 @@ $time = date("H:i");
 // Вывод последнего пользователя
 RoundingOff($last_subscribe_photo, imagesx($stamp),imagesy($stamp));
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $stamp, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
+@imagecopy($im, $last_subscribe_photo, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
 @imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$UsersName . ' ' . $UsersLastName);
