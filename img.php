@@ -1,6 +1,6 @@
 <?php
 
-// header('Content-type: image/png');
+header('Content-type: image/png');
 require_once('config.php');
 require_once('api.php');
 //Узнаем кто последний зашел в группу
@@ -62,7 +62,6 @@ if($wall_get) {
             $last = json_decode($last, true);
             sleep(5);
 	        foreach($last['response'] as $lat) {
-	        	print_r($lat['from_id']);
 	            if($lat['from_id'] != '-142528981' && $lat['from_id'] != '') {
 		            $last_coment = getApiMethod('users.get', array(
 			            'user_ids' => $lat['from_id'],
