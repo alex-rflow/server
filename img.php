@@ -41,6 +41,7 @@ function RoundingOff($_imagick, $width, $height) {
 date_default_timezone_set("Europe/Moscow");
 $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 
+
 // Аватар пользователя
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
@@ -50,8 +51,9 @@ $time = date("H:i");
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
 RoundingOff($last_subscribe_photo, 100,100);
+$stamp = @ImageCreateFromJPEG($last_subscribe_photo);
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $last_subscribe_photo, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
+@imagecopy($im, $stamp, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
 @imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$last_subscribe_firstname . ' ' . $last_subscribe_lastname);
