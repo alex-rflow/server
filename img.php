@@ -90,7 +90,7 @@ function RoundingOff($_imagick, $width, $height) {
 }
 
 date_default_timezone_set("Europe/Moscow");
-$im = @ImageCreateFromJPEG ($path.'header/header.jpg');
+$im = @ImageCreateFromJPEG ($path.'header/header-2.jpg');
 
 
 // Аватар пользователя
