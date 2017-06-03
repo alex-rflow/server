@@ -90,7 +90,7 @@ function RoundingOff($_imagick, $width, $height) {
 }
 
 date_default_timezone_set("Europe/Moscow");
-$im = @ImageCreateFromJPEG ($path.'header/header-2.jpg');
+$im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 
 
 // Аватар пользователя
@@ -170,10 +170,6 @@ else
 			}
 	}
 
-// -----------------------------------------------------------------------------
-// ---------------------------------- ТВОЯ СИЛА --------------------------------
-// -----------------------------------------------------------------------------
-
 // Вывод последнего пользователя
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
@@ -187,7 +183,6 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
 $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
 
-
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
 
@@ -195,41 +190,6 @@ $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
 $font2 = 'Tahoma.ttf';
 @imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
 @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
-
-// -----------------------------------------------------------------------------
-// ---------------------------------- /ТВОЯ СИЛА -------------------------------
-// -----------------------------------------------------------------------------
-
-
-// -----------------------------------------------------------------------------
-// ---------------------------------- ТВОЯ СИЛА --------------------------------
-// -----------------------------------------------------------------------------
-
-// // Вывод последнего пользователя
-// $file_name = 'header/last_subscribe.jpg';
-// $last_subscribe_photo = new Imagick($file_name);
-// RoundingOff($last_subscribe_photo, 140,140);
-// file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
-// $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
-// @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-// @imagecopy($im, $user, 725, 97, 0, 0, 140, 140);
-// // Вывод имени
-
-// $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
-// $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
-
-
-// $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
-// $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
-
-// // Adds the text to the image
-// $font2 = 'Tahoma.ttf';
-// @imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
-// @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
-
-// -----------------------------------------------------------------------------
-// ---------------------------------- /ТВОЯ СИЛА -------------------------------
-// -----------------------------------------------------------------------------
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
