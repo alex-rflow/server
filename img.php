@@ -32,7 +32,7 @@ if($last_subscribe) {
 // больше 100 постов получать нет смысла, так как в вк ограничение
 // разрешено постить не больше 50 постов в сутки.
 $wall_get = getApiMethod('wall.get', array(
-    'owner_id' => '-'.$group_id,
+    'owner_id' => $group_id,
     'count' => '100'
 ));
 print_r($wall_get);
