@@ -59,7 +59,7 @@ if($wall_get) {
                 ));
            	$last = json_decode($last, true);
            	$last_text = $last['response']['text'];
-           	print_r($last)
+           	print_r($last);
             sleep(5);
             $last_coment = getApiMethod('users.get', array(
 	            'user_ids' => $last['response']['from_id'],
