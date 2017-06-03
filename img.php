@@ -40,7 +40,6 @@ $wall_get = getApiMethod('wall.get', array(
 
 if($wall_get) {
     $wall_get = json_decode($wall_get, true);
-print_r($wall_get['response'][1]);
     //checkApiError($wall_get);
     
     foreach($wall_get['response'] as $wall) {
