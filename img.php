@@ -1,7 +1,6 @@
 <?php
 
 ini_set('display_errors', 1);
-header('Content-type: image/png');
 require_once('config.php');
 //Узнаем кто последний зашел в группу
 $GroupMembers = file_get_contents("https://api.vk.com/method/groups.getMembers?group_id=142528981&sort=time_desc&count=1&fields=photo_100&access_token=".$token);
