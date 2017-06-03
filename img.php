@@ -5,15 +5,32 @@ ini_set('display_errors', 1);
 require_once('config.php');
 require_once('api.php');
 //Узнаем кто последний зашел в группу
-$GroupMembers = file_get_contents("https://api.vk.com/method/groups.getMembers?group_id=142528981&sort=time_desc&count=1&fields=photo_200&access_token=".$token);
-$GroupMembersResult = json_decode($GroupMembers, true);
-//print_r($GroupMembersResult);
-// Информация о последнем вступившем
-$Users_Count = $GroupMembersResult['response']['count'];
-$UsersName = $GroupMembersResult['response']['users'][0]['first_name'];
-$UsersLastName = $GroupMembersResult['response']['users'][0]['last_name'];
-$UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_200'];
-//--------Самое интересное - рисование------------
+$last_subscribe = getApiMethod('groups.getMembers', array(
+            'group_id' => $GroupId,
+            'sort' => 'time_desc',
+            'count' => '1',
+            'fields' => 'photo_200',
+            'access_token' => $token
+        ));
+
+setLog('Ответ сервера #5 '.$last_subscribe);
+
+if($last_subscribe) {
+    $last_subscribe = json_decode($last_subscribe, true);
+
+    $members_count = $last_subscribe['response']['count'];
+    $last_subscribe_firstname = $last_subscribe['response']['items'][0]['first_name'];
+    $last_subscribe_lastname = $last_subscribe['response']['items'][0]['last_name'];
+    $last_subscribe_photo = $last_subscribe['response']['items'][0]['photo_200'];
+
+    setLog('Получаю последнего вступившего в группу: '.$last_subscribe_firstname.' '.$last_subscribe_lastname);
+    echo '<p>*** Последний подписчик '.$last_subscribe_firstname.' '.$last_subscribe_lastname.'</p></br>';
+    // Скачиваем фото
+    if(!empty($last_subscribe_firstname) && !empty($last_subscribe_lastname) && !empty($last_subscribe_photo)){
+        DownloadImages($last_subscribe_photo, 'header/last_subscribe.jpg');
+    }
+
+}
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
     $_imagick->adaptiveResizeImage($width, $height, 100);
@@ -45,7 +62,7 @@ RoundingOff($last_subscribe_photo, imagesx($stamp),imagesy($stamp));
 @imagecopy($im, $last_subscribe_photo, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
-@imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$UsersName . ' ' . $UsersLastName);
+@imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$last_subscribe_firstname . ' ' . $last_subscribe_lastname);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
