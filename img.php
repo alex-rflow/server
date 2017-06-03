@@ -62,7 +62,7 @@ if($wall_get) {
            	$last_text = $last['response'][1]['text'];
             sleep(5);
             $last_coment = getApiMethod('users.get', array(
-	            'user_ids' => $last['response']['from_id'],
+	            'user_ids' => $last['response'][1]['from_id'],
 	            'fields' => 'photo_200,first_name,last_name',
 	            'access_token' => $token
 	        ));
