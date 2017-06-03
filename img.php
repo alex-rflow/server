@@ -47,6 +47,7 @@ print_r($wall_get['response'][1]);
         
         // Получим кол-во комментариев к посту
         $count = $wall['comments']['count'];
+        print_r($count);
         $offset = 0;
         if($count > 0) { 
             // Получим все комментарии, так как их может быть больше 100.
