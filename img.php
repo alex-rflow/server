@@ -27,13 +27,13 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 
 // Аватар пользователя
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
-$stamp = new Imagick($stamp);
+$stamp1 = new Imagick($stamp1);
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 // Вывод последнего пользователя
-RoundingOff($stamp, imagesx($stamp),imagesy($stamp));
+RoundingOff($stamp1, imagesx($stamp),imagesy($stamp));
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $stamp, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
