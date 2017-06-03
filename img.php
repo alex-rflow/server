@@ -30,12 +30,13 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 imagejpeg($stamp, 'user.jpg');
 $stamp1 = new Imagick('user.jpg');
+DownloadImages($last_subscribe_photo, 'user.jpg');
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 // Вывод последнего пользователя
-RoundingOff('user.jpg', imagesx($stamp),imagesy($stamp));
+RoundingOff($last_subscribe_photo, imagesx($stamp),imagesy($stamp));
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $stamp, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
