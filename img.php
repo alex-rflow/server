@@ -52,7 +52,8 @@ $time = date("H:i");
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
 RoundingOff($last_subscribe_photo, 100,100);
-$user = @ImageCreateFromJPEG ($last_subscribe_photo);
+imagepng($last_subscribe_photo, 'header/last_subscribe.png');
+$user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $user, 730, 120, 0, 0, 100, 100);
 // Вывод имени
