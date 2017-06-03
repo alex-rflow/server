@@ -52,7 +52,9 @@ $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 // Вывод последнего пользователя
-RoundingOff($last_subscribe_photo, imagesx($stamp),imagesy($stamp));
+$file_name = BASEPATH.'header/last_subscribe.jpg';
+$last_subscribe_photo = new Imagick($file_name);
+RoundingOff($last_subscribe_photo, $last_subscribe_width,$last_subscribe_height);
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $last_subscribe_photo, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
