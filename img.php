@@ -81,11 +81,11 @@ if($wall_get) {
 }
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 90);
+    $_imagick->adaptiveResizeImage($width, $height, 100);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(
-        90, 90, 0, 0, 0
+        100, 100, 0, 0, 0
     );
 }
 
@@ -173,11 +173,11 @@ else
 
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
-RoundingOff($last_subscribe_photo, 90,90);
+RoundingOff($last_subscribe_photo, 100,100);
 file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $user, 523, 105, 0, 0, 90, 90);
+@imagecopy($im, $user, 523, 105, 0, 0, 100, 100);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
