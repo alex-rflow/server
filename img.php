@@ -98,6 +98,76 @@ $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 
+// Длинный многострочный текст, который нужно разбить на строки нужной нам длины 
+$text5 = "Максим Соков";
+
+// Способ выравнивания текста
+//$align = "left";
+$align = "center";
+//$align = "right";
+
+// Создаем цвета, которые понадобятся
+$blue	= imagecolorallocate($im, 0x88, 0x88, 0xFF);	// голубой
+$black	= imagecolorallocate($im, 0x00, 0x00, 0x00);	// черный
+
+// Заливаем изображение цветом
+imagefill($im, 1, 1, $blue);
+
+// Разбиваем наш текст на массив слов
+$arr = explode(' ', $text);
+
+// Возращенный текст с нужными переносами строк, пока пустая
+$ret = "";
+
+// Перебираем наш массив слов
+foreach($arr as $word)
+	{
+		// Временная строка, добавляем в нее слово
+		$tmp_string = $ret.' '.$word;
+		
+		// Получение параметров рамки обрамляющей текст, т.е. размер временной строки 
+		$textbox = imagettfbbox($font_size, 0, $font, $tmp_string);
+		
+		// Если временная строка не укладывается в нужные нам границы, то делаем перенос строки, иначе добавляем еще одно слово
+		if($textbox[2] > $width_text)
+			$ret.=($ret==""?"":"\n").$word;
+		else
+			$ret.=($ret==""?"":" ").$word;
+	}	
+
+if($align=="left")
+	{	
+		// Накладываем возращенный многострочный текст на изображение, отступим сверху и слева по 50px
+		imagettftext($im, $font_size ,0 , 50, 50, $black, $font, $ret);
+	}
+else
+	{
+		// Разбиваем снова на массив строк уже подготовленный текст
+		$arr = explode("\n", $ret);
+		
+		// Расчетная высота смещения новой строки
+		$height_tmp = 0;
+		
+		//Выводить будем построчно с нужным смещением относительно левой границы
+		foreach($arr as $str)
+			{
+				// Размер строки 
+				$testbox = imagettfbbox($font_size, 0, $font, $str);
+				
+				// Рассчитываем смещение
+				if($align=="center")
+					$left_x = round(($width_text - ($testbox[2] - $testbox[0]))/2);
+				else
+					$left_x = round($width_text - ($testbox[2] - $testbox[0]));
+					
+				// Накладываем текст на картинку с учетом смещений
+				imagettftext($im, $font_size ,0 , 50 + $left_x, 50 + $height_tmp, $black, $font, $str); // 50 - это отступы от края
+				
+				// Смещение высоты для следующей строки
+				$height_tmp = $height_tmp + 19;
+			}
+	}
+
 // Вывод последнего пользователя
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
