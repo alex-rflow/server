@@ -45,14 +45,12 @@ date_default_timezone_set("Europe/Moscow");
 $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 
 // Аватар пользователя
-$stamp = @ImageCreateFromJPEG($UsersPhoto);
-imagejpeg($stamp, 'user.jpg');
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 // Вывод последнего пользователя
-$file_name = BASEPATH.'header/last_subscribe.jpg';
+$file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
 RoundingOff($last_subscribe_photo, $last_subscribe_width,$last_subscribe_height);
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
