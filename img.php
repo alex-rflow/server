@@ -1,6 +1,6 @@
 <?php
 
--ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 
 require_once('config.php');
 //Узнаем кто последний зашел в группу
