@@ -37,10 +37,10 @@ $wall_get = getApiMethod('wall.get', array(
     'count' => '100',
     'access_token' => $token
 ));
-echo $wall_get;
+
 if($wall_get) {
     $wall_get = json_decode($wall_get, true);
-
+echo $wall_get;
     //checkApiError($wall_get);
     
     foreach($wall_get['response']['items'] as $wall) {
@@ -48,7 +48,6 @@ if($wall_get) {
         // Получим кол-во комментариев к посту
         $count = $wall['comments']['count'];
         $offset = 0;
-print_r('zzzzzzzzzz - '.$count);
         if($count > 0) { 
             // Получим все комментарии, так как их может быть больше 100.
            $last = getApiMethod('wall.getComments', array( 
