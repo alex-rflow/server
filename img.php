@@ -1,5 +1,6 @@
 <?php
 
+header('Content-type: image/png');
 require_once('config.php');
 require_once('api.php');
 //Узнаем кто последний зашел в группу
@@ -58,8 +59,7 @@ if($wall_get) {
                     'sort' => 'desc'
                 ));
            	$last = json_decode($last, true);
-           	$last_text = $last['response']['text'];
-           	print_r($last_text);
+           	$last_text = $last['response'][1]['text'];
             sleep(5);
             $last_coment = getApiMethod('users.get', array(
 	            'user_ids' => $last['response']['from_id'],
