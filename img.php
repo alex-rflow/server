@@ -1,7 +1,6 @@
 <?php
 
-ini_set('display_errors', 1);
-
+header('Content-type: image/png');
 
 require_once('config.php');
 require_once('api.php');
@@ -58,7 +57,7 @@ if($wall_get) {
                     'count' => '1',
                     'offset' => $offset
                 ));
-            }
+            
             echo 'console.log(' . $last . ')';
             break;
         }
