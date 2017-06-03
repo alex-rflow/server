@@ -63,7 +63,7 @@ if($wall_get) {
             $last = json_decode($last, true);
             sleep(5);
 	        foreach($last['response'] as $lat) {
-	            if($lat['from_id'] != '-142528981' && $lat['from_id'] != '') {
+	            if($lat['from_id'] != '-'.$GroupId && $lat['from_id'] != '') {
 		            $last_coment = getApiMethod('users.get', array(
 			            'user_ids' => $lat['from_id'],
 			            'fields' => 'photo_100,first_name,last_name',
