@@ -47,14 +47,14 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
+
 // Вывод последнего пользователя
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
 RoundingOff($last_subscribe_photo, 100,100);
 $stamp = @ImageCreateFromJPEG($last_subscribe_photo);
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $stamp, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
-
+$im->compositeImage($last_subscribe_photo, Imagick::COMPOSITE_DEFAULT, 730, 120);
 // Вывод имени
 @imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$last_subscribe_firstname . ' ' . $last_subscribe_lastname);
 // Вывод фамилии
