@@ -60,9 +60,8 @@ if($wall_get) {
                 'sort' => 'desc'
             ));
             $last = json_decode($last, true);
+            sleep(5);
 	        foreach($last['response'] as $lat) {
-	           	
-	            sleep(5);
 	            if($lat['from_id'] != '-142528981') {
 		            $last_coment = getApiMethod('users.get', array(
 			            'user_ids' => $lat['from_id'],
