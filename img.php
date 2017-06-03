@@ -22,7 +22,7 @@ $white = @imagecolorallocate($im, 39,39,39);
 $time = date("H:i");
 // Вывод последнего пользователя
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $stamp, 1336, 45, 0, 0, imagesx($stamp), imagesy($stamp));
+@imagecopy($im, $stamp, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
 @imagettftext($im, 20, 0, 1450, 100, $white, $path.'font/BebasNeue Regular.ttf',$UsersName);
