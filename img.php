@@ -49,22 +49,24 @@ if($wall_get) {
         $offset = 0;
         if($count > 0) { 
             // Получим все комментарии, так как их может быть больше 100.
-            foreach($wall_get['response'] as $wall) {
-	           $last = getApiMethod('wall.getComments', array( 
-	                    'owner_id' => '-'.$GroupId,
-	                    'post_id' => $wall['id'],
-	                    'need_likes' => '1',
-	                    'count' => '1',
-	                    'offset' => $offset,
-	                    'access_token' => $token,
-	                    'sort' => 'desc'
-	                ));
-	           	$last = json_decode($last, true);
-	           	$last_text = $last['response'][1]['text'];
+            
+           	$last = getApiMethod('wall.getComments', array( 
+                'owner_id' => '-'.$GroupId,
+                'post_id' => $wall['id'],
+                'need_likes' => '1',
+                'count' => '1',
+                'offset' => $offset,
+                'access_token' => $token,
+                'sort' => 'desc'
+            ));
+            $last = json_decode($last, true);
+	        foreach($last['response'] as $lat) {
+	           	
+	           	$last_text = $lat[1]['text'];
 	            sleep(5);
-	            if($last['response'][1]['from_id'] != '-142528981') {
+	            if($lat[1]['from_id'] != '-142528981') {
 		            $last_coment = getApiMethod('users.get', array(
-			            'user_ids' => $last['response'][1]['from_id'],
+			            'user_ids' => $lat[1]['from_id'],
 			            'fields' => 'photo_200,first_name,last_name',
 			            'access_token' => $token
 			        ));
