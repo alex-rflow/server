@@ -12,6 +12,15 @@ $UsersLastName = $GroupMembersResult['response']['users'][0]['last_name'];
 $UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_100'];
 //--------Самое интересное - рисование------------
 // Фоновая картинка
+function RoundingOff($_imagick, $width, $height) {
+    $_imagick->adaptiveResizeImage($width, $height, 100);
+    $_imagick->setImageFormat('png');
+        
+    $_imagick->roundCornersImage(
+        90, 90, 0, 0, 0
+    );
+}
+
 date_default_timezone_set("Europe/Moscow");
 $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 // Аватар пользователя
@@ -34,14 +43,7 @@ RoundingOff($stamp, imagesx($stamp),imagesy($stamp));
 imagejpeg($im, NULL, 100);
 imagedestroy($im);
 
-function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 100);
-    $_imagick->setImageFormat('png');
-        
-    $_imagick->roundCornersImage(
-        90, 90, 0, 0, 0
-    );
-}
+
 
 echo "<b style='margin: 20px;'>Hello world</b>";
 ?>
