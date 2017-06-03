@@ -55,7 +55,7 @@ RoundingOff($last_subscribe_photo, 150,150);
 file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $user, 710, 80, 0, 0, 150, 150);
+@imagecopy($im, $user, 715, 90, 0, 0, 150, 150);
 // Вывод имени
 @imagettftext($im, 20, 0, 660, 350, $white, $path.'font/Tahoma.ttf',$last_subscribe_firstname . ' ' . $last_subscribe_lastname);
 // Вывод фамилии
