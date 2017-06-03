@@ -71,6 +71,7 @@ if($wall_get) {
 			        ));
 			        $last_coment = json_decode($last_coment, true);
 			        $last_text = $lat['text'];
+			        DownloadImages($last_coment['response'][0]['photo_200'], 'header/last_coment_user.jpg');
 			        break;
 			    }
 	    	}
@@ -178,6 +179,13 @@ file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $user, 517.5, 102.5, 0, 0, 100, 100);
+
+$file_name2 = 'header/last_coment_user.jpg';
+$last_coment_user_photo = new Imagick($file_name2);
+RoundingOff($last_coment_user_photo, 100,100);
+file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
+$user = @ImageCreateFromPNG($path.'header/last_coment_user.png');
+@imagecopy($im, $user, 817.5, 102.5, 0, 0, 100, 100);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
