@@ -13,7 +13,7 @@ $UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_100'];
 //--------Самое интересное - рисование------------
 // Фоновая картинка
 date_default_timezone_set("Europe/Moscow");
-$im = @ImageCreateFromJPEG ($path.'header/day_bg.jpg');
+$im = @ImageCreateFromJPEG ($path.'header/header.png');
 // Аватар пользователя
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 // Цвет текста
