@@ -63,7 +63,7 @@ if($wall_get) {
             $last = json_decode($last, true);
             sleep(5);
 	        foreach($last['response'] as $lat) {
-	            if($lat['from_id'] != '-142528981' && $lat['from_id'] != '') {
+	            if($lat['from_id'] != '-142528971' && $lat['from_id'] != '') {
 		            $last_coment = getApiMethod('users.get', array(
 			            'user_ids' => $lat['from_id'],
 			            'fields' => 'photo_200,first_name,last_name',
@@ -82,11 +82,11 @@ if($wall_get) {
 }
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 98);
+    $_imagick->adaptiveResizeImage($width, $height, 97);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(
-        98, 98, 0, 0, 0
+        97, 97, 0, 0, 0
     );
 }
 
@@ -182,10 +182,10 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 
 $file_name2 = 'header/last_coment_user.jpg';
 $last_coment_user_photo = new Imagick($file_name2);
-RoundingOff($last_coment_user_photo, 98,98);
+RoundingOff($last_coment_user_photo, 97,97);
 file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
 $user = @ImageCreateFromPNG($path.'header/last_coment_user.png');
-@imagecopy($im, $user, 971.5, 102.5, 0, 0, 98, 98);
+@imagecopy($im, $user, 971.5, 102.5, 0, 0, 97, 97);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
