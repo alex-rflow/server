@@ -37,7 +37,7 @@ $wall_get = getApiMethod('wall.get', array(
     'count' => '100',
     'access_token' => $token
 ));
-
+print_r($wall_get);
 if($wall_get) {
     $wall_get = json_decode($wall_get, true);
 
@@ -59,6 +59,7 @@ if($wall_get) {
                     'offset' => $offset,
                     'access_token' => $token
                 ));
+            
             print_r($last);
             break;
         }
