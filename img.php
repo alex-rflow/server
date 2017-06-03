@@ -56,7 +56,8 @@ if($wall_get) {
                     'post_id' => $wall['id'],
                     'need_likes' => '1',
                     'count' => '1',
-                    'offset' => $offset
+                    'offset' => $offset,
+                    'access_token' => $token
                 ));
             
             print_r($last);
