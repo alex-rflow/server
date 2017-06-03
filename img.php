@@ -58,7 +58,7 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagecopy($im, $user, 725, 97, 0, 0, 140, 140);
 // Вывод имени
 $font = $path.'font/Tahoma.ttf';
-$text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
+$text ='Hello';
 $fontwidth = imagefontwidth($font);
 
 $center = (imagesx($im)/2) - ($fontwidth*(strlen($text)/2));
