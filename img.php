@@ -1,6 +1,6 @@
 <?php
 
-ini_set('display_errors', 1);
+header('Content-type: image/png');
 
 require_once('config.php');
 require_once('api.php');
@@ -22,9 +22,6 @@ if($last_subscribe) {
     $last_subscribe_firstname = $last_subscribe['response']['users'][0]['first_name'];
     $last_subscribe_lastname = $last_subscribe['response']['users'][0]['last_name'];
     $last_subscribe_photo = $last_subscribe['response']['users'][0]['photo_200'];
-
-    setLog('Получаю последнего вступившего в группу: '.$last_subscribe_firstname.' '.$last_subscribe_lastname);
-    echo '<p>*** Последний подписчик '.$last_subscribe_firstname.' '.$last_subscribe_lastname.'</p></br>';
     // Скачиваем фото
     if(!empty($last_subscribe_firstname) && !empty($last_subscribe_lastname) && !empty($last_subscribe_photo)){
         DownloadImages($last_subscribe_photo, 'header/last_subscribe.jpg');
