@@ -61,7 +61,7 @@ $font = 'font/Tahoma.ttf';
 $text = 'Максим Соков';
 $fontwidth = imagefontwidth($font);
 
-$center = (imagesx($im)/2) - (7*strlen(utf8_decode($text)));
+$center = (imagesx($im)/2) - (7*iconv_strlen($text,'UTF-8'));
 
 // Adds the text to the image
 
