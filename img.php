@@ -45,6 +45,11 @@ date_default_timezone_set("Europe/Moscow");
 $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 
 // Аватар пользователя
+// Ширина аватарки
+$last_subscribe_width = 90;
+
+// Высота аватарки
+$last_subscribe_height = 90;
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
 // Время
