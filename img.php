@@ -81,11 +81,11 @@ if($wall_get) {
 }
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 140);
+    $_imagick->adaptiveResizeImage($width, $height, 90);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(
-        140, 140, 0, 0, 0
+        90, 90, 0, 0, 0
     );
 }
 
@@ -171,14 +171,13 @@ else
 			}
 	}
 
-// Вывод последнего пользователя
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
-RoundingOff($last_subscribe_photo, 140,140);
+RoundingOff($last_subscribe_photo, 90,90);
 file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $user, 725, 97, 0, 0, 140, 140);
+@imagecopy($im, $user, 523, 105, 0, 0, 90, 90);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
@@ -191,8 +190,32 @@ $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
 $font2 = 'Tahoma.ttf';
 @imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
 @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+// Вывод последнего пользователя
+// $file_name = 'header/last_subscribe.jpg';
+// $last_subscribe_photo = new Imagick($file_name);
+// RoundingOff($last_subscribe_photo, 140,140);
+// file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
+// $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
+// @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
+// @imagecopy($im, $user, 725, 97, 0, 0, 140, 140);
+// // Вывод имени
+
+// $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
+// $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
+
+// $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
+// $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
+
+// // Adds the text to the image
+// $font2 = 'Tahoma.ttf';
+// @imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
+// @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
+//-------------------------------------------------------------------------------------------------------------------------
 //На этом все почти:)
 // успешно загружено
 imagejpeg($im, NULL, 100);
