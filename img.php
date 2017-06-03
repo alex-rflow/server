@@ -171,6 +171,8 @@ else
 				$height_tmp = $height_tmp + 19;
 			}
 	}
+	
+//-------------------------------------------------------------------------------------------------------------------------
 
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
