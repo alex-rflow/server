@@ -66,7 +66,6 @@ if($wall_get) {
 	            'access_token' => $token
 	        ));
 	        $last_coment = json_decode($last_coment, true);
-	        print_r($last_coment);
             break;
         }
 
@@ -107,11 +106,12 @@ $text2 = $last_coment['responce']['first_name'] . ' ' . $last_coment['responce']
 $fontwidth = imagefontwidth($font);
 
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
+$center2 = (imagesx($im)/2) - (7.5*iconv_strlen($text2,'UTF-8'));
 
 // Adds the text to the image
 
 @imagettftext($im, 20, 0, $center, 350, $white, $font, $text);
-@imagettftext($im, 20, 0, $center, 370, $white, $font, $text2);
+@imagettftext($im, 20, 0, $center2, 370, $white, $font, $text2);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
