@@ -46,7 +46,7 @@ if($wall_get) {
         // Получим кол-во комментариев к посту
         $count = $wall['comments']['count'];
         $offset = 0;
-
+		print_r($wall);
         if($count > 0) { 
             // Получим все комментарии, так как их может быть больше 100.
            $last = getApiMethod('wall.getComments', array( 
