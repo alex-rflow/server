@@ -19,9 +19,9 @@ if($last_subscribe) {
     $last_subscribe = json_decode($last_subscribe, true);
 
     $members_count = $last_subscribe['response']['count'];
-    $last_subscribe_firstname = $last_subscribe['response']['items'][0]['first_name'];
-    $last_subscribe_lastname = $last_subscribe['response']['items'][0]['last_name'];
-    $last_subscribe_photo = $last_subscribe['response']['items'][0]['photo_200'];
+    $last_subscribe_firstname = $last_subscribe['response']['users'][0]['first_name'];
+    $last_subscribe_lastname = $last_subscribe['response']['users'][0]['last_name'];
+    $last_subscribe_photo = $last_subscribe['response']['users'][0]['photo_200'];
 
     setLog('Получаю последнего вступившего в группу: '.$last_subscribe_firstname.' '.$last_subscribe_lastname);
     echo '<p>*** Последний подписчик '.$last_subscribe_firstname.' '.$last_subscribe_lastname.'</p></br>';
