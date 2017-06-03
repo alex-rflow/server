@@ -102,7 +102,7 @@ $white = @imagecolorallocate($im, 255,255,255);
 $time = date("H:i");
 
 // Длинный многострочный текст, который нужно разбить на строки нужной нам длины 
-$text5 = "Vlad Alexandrov";
+$text5 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'];
 
 // Способ выравнивания текста
 //$align = "left";
@@ -111,7 +111,7 @@ $font = 'font/Gotham.ttf';
 //$align = "right";
 
 // Создаем цвета, которые понадобятся
-$black	= @imagecolorallocate($im, 0x00, 0x00, 0x00);	// черный
+$black	= @imagecolorallocate($im, 255, 255, 255);	// черный
 
 // Заливаем изображение цветом
 
@@ -190,7 +190,6 @@ $user2 = @ImageCreateFromPNG($path.'header/last_coment_user.png');
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
-$text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
 
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
