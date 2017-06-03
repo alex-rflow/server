@@ -35,7 +35,7 @@ $wall_get = getApiMethod('wall.get', array(
     'owner_id' => '-'.$group_id,
     'count' => '100'
 ));
-
+print_r($wall_get);
 if($wall_get) {
     $wall_get = json_decode($wall_get, true);
 
@@ -46,7 +46,7 @@ if($wall_get) {
         // Получим кол-во комментариев к посту
         $count = $wall['comments']['count'];
         $offset = 0;
-		print_r($wall);
+
         if($count > 0) { 
             // Получим все комментарии, так как их может быть больше 100.
            $last = getApiMethod('wall.getComments', array( 
