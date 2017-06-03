@@ -56,7 +56,8 @@ if($wall_get) {
                     'need_likes' => '1',
                     'count' => '1',
                     'offset' => $offset,
-                    'access_token' => $token
+                    'access_token' => $token,
+                    'sort' => 'desc'
                 ));
             
             print_r($last);
