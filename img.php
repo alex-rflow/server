@@ -103,7 +103,8 @@ $text5 = "Максим Соков";
 
 // Способ выравнивания текста
 //$align = "left";
-$align = "center";
+$align = "right";
+$font = 'font/Tahoma.ttf';
 //$align = "right";
 
 // Создаем цвета, которые понадобятся
@@ -114,7 +115,7 @@ $black	= imagecolorallocate($im, 0x00, 0x00, 0x00);	// черный
 imagefill($im, 1, 1, $blue);
 
 // Разбиваем наш текст на массив слов
-$arr = explode(' ', $text);
+$arr = explode(' ', $text5);
 
 // Возращенный текст с нужными переносами строк, пока пустая
 $ret = "";
@@ -177,7 +178,7 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $user, 725, 97, 0, 0, 140, 140);
 // Вывод имени
-$font = 'font/Tahoma.ttf';
+
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
 $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
 $fontwidth = imagefontwidth($font);
