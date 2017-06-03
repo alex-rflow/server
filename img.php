@@ -1,4 +1,6 @@
 <?php
+
+ini_set('display_errors', 1);
 header('Content-type: image/png');
 require_once('config.php');
 //Узнаем кто последний зашел в группу
