@@ -66,12 +66,12 @@ if($wall_get) {
 	            if($lat['from_id'] != '-142528971' && $lat['from_id'] != '') {
 		            $last_coment = getApiMethod('users.get', array(
 			            'user_ids' => $lat['from_id'],
-			            'fields' => 'photo_200,first_name,last_name',
+			            'fields' => 'photo_100,first_name,last_name',
 			            'access_token' => $token
 			        ));
 			        $last_coment = json_decode($last_coment, true);
 			        $last_text = $lat['text'];
-			        DownloadImages($last_coment['response'][0]['photo_200'], 'header/last_coment_user.jpg');
+			        DownloadImages($last_coment['response'][0]['photo_100'], 'header/last_coment_user.jpg');
 			        break;
 			    }
 	    	}
