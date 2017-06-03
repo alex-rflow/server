@@ -2,8 +2,8 @@
 
 // header('Content-type: image/png');
 ini_set('display_errors', 1);
-require_once('config.php');
 require_once('api.php');
+
 //Узнаем кто последний зашел в группу
 $last_subscribe = getApiMethod('groups.getMembers', array(
             'group_id' => $GroupId,
@@ -12,12 +12,12 @@ $last_subscribe = getApiMethod('groups.getMembers', array(
             'fields' => 'photo_200',
             'access_token' => $token
         ));
-
+    print_r($last_subscribe);
 setLog('Ответ сервера #5 '.$last_subscribe);
 
 if($last_subscribe) {
     $last_subscribe = json_decode($last_subscribe, true);
-    print_r($last_subscribe);
+
 
     $members_count = $last_subscribe['response']['count'];
     $last_subscribe_firstname = $last_subscribe['response']['users'][0]['first_name'];
