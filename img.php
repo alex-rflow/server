@@ -1,6 +1,6 @@
 <?php
 
-header('Content-type: image/png');
+ini_set('display_errors', 1);
 
 require_once('config.php');
 require_once('api.php');
@@ -37,6 +37,33 @@ $wall_get = getApiMethod('wall.get', array(
     'count' => '100'
 ));
 
+if($wall_get) {
+    $wall_get = json_decode($wall_get, true);
+
+    //checkApiError($wall_get);
+    
+    foreach($wall_get['response']['items'] as $wall) {
+        
+        // Получим кол-во комментариев к посту
+        $count = $wall['comments']['count'];
+        $offset = 0;
+
+        if($count > 0) { 
+            // Получим все комментарии, так как их может быть больше 100.
+           $last = getApiMethod('wall.getComments', array( 
+                    'owner_id' => '-'.$group_id,
+                    'post_id' => $wall['id'],
+                    'need_likes' => '1',
+                    'count' => '1',
+                    'offset' => $offset
+                ));
+            }
+            echo 'console.log(' . $last . ')';
+            break;
+        }
+
+    }
+}
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
     $_imagick->adaptiveResizeImage($width, $height, 140);
