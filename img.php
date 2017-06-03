@@ -64,6 +64,7 @@ $fontwidth = imagefontwidth($font);
 $center = (imagesx($im)/2) - (14*(strlen($text)/2));
 
 // Adds the text to the image
+$textpng = imagecreate();
 @imagettftext($textpng, 20, 0, 0, 0, $white, $font, $text);
 imagejpeg($textpng, 'text.png');
 @imagettftext($im, 20, 0, $center, 350, $white, $font, $text);
