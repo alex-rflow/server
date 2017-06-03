@@ -65,7 +65,7 @@ if($wall_get) {
 	            'fields' => 'photo_200,first_name,last_name',
 	            'access_token' => $token
 	        ));
-	        print_r($last_coment)
+	        print_r($last_coment);
             break;
         }
 
