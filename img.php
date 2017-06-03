@@ -62,7 +62,6 @@ if($wall_get) {
             $last = json_decode($last, true);
 	        foreach($last['response'] as $lat) {
 	           	
-	           	$last_text = $lat['text'];
 	            sleep(5);
 	            if($lat['from_id'] != '-142528981') {
 		            $last_coment = getApiMethod('users.get', array(
@@ -71,6 +70,7 @@ if($wall_get) {
 			            'access_token' => $token
 			        ));
 			        $last_coment = json_decode($last_coment, true);
+			        $last_text = $lat['text'];
 			        break;
 			    }
 	    	}
