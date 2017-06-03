@@ -14,7 +14,6 @@ $UsersPhoto = $GroupMembersResult['response']['users'][0]['photo_100'];
 //--------Самое интересное - рисование------------
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 100);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(

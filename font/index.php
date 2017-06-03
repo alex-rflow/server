@@ -413,7 +413,6 @@ function timeCountdown() {
 }
 
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 100);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(
