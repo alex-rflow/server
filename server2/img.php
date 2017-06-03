@@ -95,6 +95,7 @@ date_default_timezone_set("Europe/Moscow");
 $im = @ImageCreateFromPNG ($path.'header/header-2.png');
 
 
+
 // Аватар пользователя
 // Цвет текста
 // $white = @imagecolorallocate($im, 39,39,39);
