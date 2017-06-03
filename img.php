@@ -54,7 +54,7 @@ if($wall_get) {
                 'owner_id' => '-'.$GroupId,
                 'post_id' => $wall['id'],
                 'need_likes' => '1',
-                'count' => '1',
+                'count' => '100',
                 'offset' => $offset,
                 'access_token' => $token,
                 'sort' => 'desc'
@@ -62,11 +62,11 @@ if($wall_get) {
             $last = json_decode($last, true);
 	        foreach($last['response'] as $lat) {
 	           	
-	           	$last_text = $lat[1]['text'];
+	           	$last_text = $lat['text'];
 	            sleep(5);
-	            if($lat[1]['from_id'] != '-142528981') {
+	            if($lat['from_id'] != '-142528981') {
 		            $last_coment = getApiMethod('users.get', array(
-			            'user_ids' => $lat[1]['from_id'],
+			            'user_ids' => $lat['from_id'],
 			            'fields' => 'photo_200,first_name,last_name',
 			            'access_token' => $token
 			        ));
