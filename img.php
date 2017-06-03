@@ -28,7 +28,7 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 
 // Аватар пользователя
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
-file_put_contents('user.jpg',$stamp);
+imagejpeg($stamp, 'user.jpg');
 $stamp1 = new Imagick('user.jpg');
 // Цвет текста
 $white = @imagecolorallocate($im, 39,39,39);
