@@ -104,7 +104,7 @@ $text5 = "Максим Соков";
 // Способ выравнивания текста
 //$align = "left";
 $align = "right";
-$font = 'font/Tahoma.ttf';
+$font = 'Tahoma.ttf';
 //$align = "right";
 
 // Создаем цвета, которые понадобятся
@@ -112,7 +112,6 @@ $blue	= imagecolorallocate($im, 0x88, 0x88, 0xFF);	// голубой
 $black	= imagecolorallocate($im, 0x00, 0x00, 0x00);	// черный
 
 // Заливаем изображение цветом
-imagefill($im, 1, 1, $blue);
 
 // Разбиваем наш текст на массив слов
 $arr = explode(' ', $text5);
