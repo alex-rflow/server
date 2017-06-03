@@ -99,11 +99,11 @@ $white = @imagecolorallocate($im, 39,39,39);
 $time = date("H:i");
 
 // Длинный многострочный текст, который нужно разбить на строки нужной нам длины 
-$text5 = "Максим Соков";
+$text5 = "Vlad Alexandrov";
 
 // Способ выравнивания текста
 //$align = "left";
-$align = "right";
+$align = "left";
 $font = 'Tahoma.ttf';
 //$align = "right";
 
