@@ -122,7 +122,7 @@ $arr = explode(' ', $text5);
 $ret = "";
 $font_size = 28;
 
-$width_text = 500;
+$width_text = 497;
 // Перебираем наш массив слов
 foreach($arr as $word)
 	{
@@ -165,7 +165,7 @@ else
 					$left_x = round($width_text - ($testbox[2] - $testbox[0]));
 					
 				// Накладываем текст на картинку с учетом смещений
-				@imagettftext($im, $font_size ,0 , $left_x, 180, $black, $font, $str); // 50 - это отступы от края
+				@imagettftext($im, $font_size ,0 , $left_x, 185, $black, $font, $str); // 50 - это отступы от края
 				
 				// Смещение высоты для следующей строки
 				$height_tmp = $height_tmp + 19;
