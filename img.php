@@ -30,7 +30,8 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 imagejpeg($stamp, 'user.jpg');
 $stamp1 = new Imagick('user.jpg');
-if(!empty($last_subscribe_firstname) && !empty($last_subscribe_lastname) && !empty($last_subscribe_photo)){
+$last_subscribe_photo = $UsersPhoto;
+if(!empty($last_subscribe_photo)){
             DownloadImages($last_subscribe_photo, 'user.jpg');
         }
 // Цвет текста
