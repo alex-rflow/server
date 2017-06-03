@@ -57,7 +57,7 @@ if($wall_get) {
                     'offset' => $offset
                 ));
             
-            echo 'console.log(' . $last . ')';
+            print_r($last);
             break;
         }
 
