@@ -30,11 +30,11 @@ if($last_subscribe) {
 }
 // Фоновая картинка
 function RoundingOff($_imagick, $width, $height) {
-    $_imagick->adaptiveResizeImage($width, $height, 100);
+    $_imagick->adaptiveResizeImage($width, $height, 200);
     $_imagick->setImageFormat('png');
         
     $_imagick->roundCornersImage(
-        90, 90, 0, 0, 0
+        100, 100, 0, 0, 0
     );
 }
 
