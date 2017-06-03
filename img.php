@@ -105,7 +105,7 @@ $text5 = "Vlad Alexandrov";
 // Способ выравнивания текста
 //$align = "left";
 $align = "left";
-$font = 'Tahoma.ttf';
+$font = 'font/Tahoma.ttf';
 //$align = "right";
 
 // Создаем цвета, которые понадобятся
