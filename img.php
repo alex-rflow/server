@@ -58,8 +58,8 @@ if($wall_get) {
                     'sort' => 'desc'
                 ));
            	$last = json_decode($last, true);
-           	$last_text = $last['response']['text'];
-           	print_r($last);
+           	$last_text = $last['response'][1]['text'];
+           	print_r($last_text);
             sleep(5);
             $last_coment = getApiMethod('users.get', array(
 	            'user_ids' => $last['response']['from_id'],
