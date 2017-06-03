@@ -186,7 +186,7 @@ RoundingOff($last_coment_user_photo, 98,98);
 file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
 $user2 = @ImageCreateFromPNG($path.'header/last_coment_user.png');
 @imagecopy($im, $user2, 518, 104, 0, 0, 98, 98);
-@imagecopy($im, $user, 970.5, 104, 0, 0, 99, 99);
+@imagecopy($im, $user, 970.5, 103.5, 0, 0, 99, 99);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
