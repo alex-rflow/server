@@ -25,7 +25,7 @@ $time = date("H:i");
 @imagecopy($im, $stamp, 730, 120, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
-@imagettftext($im, 20, 0, 730, 350, $white, $path.'font/BebasNeue Regular.ttf',$UsersName . ' ' . $UsersLastName);
+@imagettftext($im, 20, 0, 730, 350, $white, $path.'font/UniNeue-Light.otf',$UsersName . ' ' . $UsersLastName);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
