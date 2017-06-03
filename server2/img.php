@@ -1,7 +1,7 @@
 <?php
 
-header('Content-type: image/png');
-// ini_set('display_errors', 1);
+// header('Content-type: image/png');
+ini_set('display_errors', 1);
 require_once('api.php');
 
 //Узнаем кто последний зашел в группу
@@ -92,7 +92,7 @@ function RoundingOff($_imagick, $width, $height) {
 }
 
 date_default_timezone_set("Europe/Moscow");
-$im = @ImageCreateFromPNG ($path.'header/header.jpg');
+$im = @ImageCreateFromPNG ($path.'header/header-2.png');
 
 
 // Аватар пользователя
