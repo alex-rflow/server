@@ -64,7 +64,8 @@ $fontwidth = imagefontwidth($font);
 $center = (imagesx($im)/2) - (14*(strlen($text)/2));
 
 // Adds the text to the image
-
+@imagettftext($textpng, 20, 0, 0, 0, $white, $font, $text);
+imagejpeg($textpng, 'text.png');
 @imagettftext($im, 20, 0, $center, 350, $white, $font, $text);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
