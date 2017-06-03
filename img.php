@@ -52,7 +52,7 @@ $time = date("H:i");
 $file_name = 'header/last_subscribe.jpg';
 $last_subscribe_photo = new Imagick($file_name);
 RoundingOff($last_subscribe_photo, 100,100);
-DownloadImages($last_subscribe_photo, 'header/last_subscribe.png');
+file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $user, 730, 120, 0, 0, 100, 100);
