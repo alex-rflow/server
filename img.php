@@ -1,6 +1,6 @@
 <?php
 
-
+header('Content-type: image/png');
 require_once('config.php');
 require_once('api.php');
 //Узнаем кто последний зашел в группу
@@ -116,8 +116,8 @@ $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
 // успешно загружено
-// imagejpeg($im, NULL, 100);
-// imagedestroy($im);
+imagejpeg($im, NULL, 100);
+imagedestroy($im);
 
 
 ?>
