@@ -34,7 +34,8 @@ if($last_subscribe) {
 $wall_get = getApiMethod('wall.get', array(
     'owner_id' => '-'.$GroupId,
     'count' => '100',
-    'access_token' => $token
+    'access_token' => $token,
+    'filter' => 'all'
 ));
 print_r($wall_get);
 if($wall_get) {
