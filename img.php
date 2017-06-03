@@ -17,11 +17,11 @@ $im = @ImageCreateFromJPEG ($path.'header/header.jpg');
 // Аватар пользователя
 $stamp = @ImageCreateFromJPEG($UsersPhoto);
 // Цвет текста
-$white = @imagecolorallocate($im, 255,255,255);
+$white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 // Вывод последнего пользователя
-@imagettftext($im, 30, 0, 45, 360, $white, $path.'font/BebasNeue Regular.ttf',$time);
+@imagettftext($im, 30, 0, 45, 340, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $stamp, 1336, 45, 0, 0, imagesx($stamp), imagesy($stamp));
 
 // Вывод имени
