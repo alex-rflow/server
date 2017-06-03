@@ -33,9 +33,9 @@ if($last_subscribe) {
 // разрешено постить не больше 50 постов в сутки.
 $wall_get = getApiMethod('wall.get', array(
     'owner_id' => '-'.$GroupId,
+    'filter' => 'all',
     'count' => '100',
-    'access_token' => $token,
-    'filter' => 'all'
+    'access_token' => $token
 ));
 print_r($wall_get);
 if($wall_get) {
