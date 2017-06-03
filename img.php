@@ -107,7 +107,7 @@ $text5 = "Vlad Alexandrov";
 // Способ выравнивания текста
 //$align = "left";
 $align = "left";
-$font = 'font/Tahoma.ttf';
+$font = 'font/Gotham.ttf';
 //$align = "right";
 
 // Создаем цвета, которые понадобятся
@@ -120,7 +120,7 @@ $arr = explode(' ', $text5);
 
 // Возращенный текст с нужными переносами строк, пока пустая
 $ret = "";
-$font_size = 11;
+$font_size = 28;
 
 $width_text = 500;
 // Перебираем наш массив слов
@@ -186,7 +186,7 @@ RoundingOff($last_coment_user_photo, 99,99);
 file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
 $user2 = @ImageCreateFromPNG($path.'header/last_coment_user.png');
 @imagecopy($im, $user2, 517.9, 103.5, 0, 0, 99, 99);
-@imagecopy($im, $user2, 970.5, 103.5, 0, 0, 99, 99);
+@imagecopy($im, $user, 970.5, 103.5, 0, 0, 99, 99);
 // Вывод имени
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
