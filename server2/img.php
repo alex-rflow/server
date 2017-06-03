@@ -17,7 +17,7 @@ setLog('Ответ сервера #5 '.$last_subscribe);
 
 if($last_subscribe) {
     $last_subscribe = json_decode($last_subscribe, true);
-    print_r($last_subscribe)
+    print_r($last_subscribe);
 
     $members_count = $last_subscribe['response']['count'];
     $last_subscribe_firstname = $last_subscribe['response']['users'][0]['first_name'];
