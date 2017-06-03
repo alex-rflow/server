@@ -61,13 +61,10 @@ $font = 'font/Tahoma.ttf';
 $text = 'Максим Соков';
 $fontwidth = imagefontwidth($font);
 
-$center = (imagesx($im)/2) - (14*(strlen($text)/2));
-
 // Adds the text to the image
 
 $bbox = imagettfbbox(85, 0, $font, $txt);
 $center1 = (imagesx($im) / 2) - (($bbox[2] - $bbox[0]) / 2);
-@imagettftext($im, 20, 0, $center, 350, $white, $font, $text);
 // Вывод фамилии
 // @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //На этом все почти:)
