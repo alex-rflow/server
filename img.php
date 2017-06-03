@@ -182,7 +182,6 @@ $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 
 $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
 $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
-$fontwidth = imagefontwidth($font);
 
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
