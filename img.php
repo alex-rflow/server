@@ -178,7 +178,7 @@ RoundingOff($last_subscribe_photo, 100,100);
 file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-@imagecopy($im, $user, 517.5, 102.5, 0, 0, 100, 100);
+@imagecopy($im, $user, 517.5, 105.5, 0, 0, 100, 100);
 
 $file_name2 = 'header/last_coment_user.jpg';
 $last_coment_user_photo = new Imagick($file_name2);
