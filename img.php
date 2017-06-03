@@ -165,7 +165,7 @@ else
 					$left_x = round($width_text - ($testbox[2] - $testbox[0]));
 					
 				// Накладываем текст на картинку с учетом смещений
-				@imagettftext($im, $font_size ,0 , $left_x, 123, $black, $font, $str); // 50 - это отступы от края
+				@imagettftext($im, $font_size ,0 , $left_x, 160, $black, $font, $str); // 50 - это отступы от края
 				
 				// Смещение высоты для следующей строки
 				$height_tmp = $height_tmp + 19;
