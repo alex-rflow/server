@@ -106,7 +106,7 @@ $text5 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['respons
 
 // Способ выравнивания текста
 //$align = "left";
-$align = "left";
+$align = "right";
 $font = 'font/Gotham.ttf';
 //$align = "right";
 
