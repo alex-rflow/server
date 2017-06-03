@@ -1,6 +1,5 @@
 <?php
 
-header('Content-type: image/png');
 
 require_once('config.php');
 require_once('api.php');
