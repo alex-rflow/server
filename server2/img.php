@@ -103,7 +103,7 @@ $white = @imagecolorallocate($im, 39,39,39);
 $time = date("H:i");
 
 // Длинный многострочный текст, который нужно разбить на строки нужной нам длины 
-$text5 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'];
+$text5 = '';
 
 // Способ выравнивания текста
 //$align = "left";
