@@ -18,7 +18,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 $result = json_decode(curl_exec($ch),true);
 sleep(5);
 $safe = file_get_contents("https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=".$result['hash']."&photo=".$result['photo']."&access_token=".$token);
-print_r('Ok - server 1 upload');
+print_r($safe);
 // Ошибка случилась из за того, что мы не написали саму картинку img.php
 // И Так я подготовил тестовую группу для примера и 3 файла php, папку fonts и в ней шрифт далее папкак cover и в ней будующая обложка
 // сегодня научимся выводить последнего вошедшего пользователя а точнее его аватал имя и фамилию и время все это будет обновляться по средствам крон но мы для теста будем делать это сами ...
