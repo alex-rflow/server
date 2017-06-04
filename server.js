@@ -25,7 +25,6 @@ function doRequest(url) {
 
 function start() {
 	doRequest(url);
-	doRequest(url1);
 }
 
 setInterval(function() {
