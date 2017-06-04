@@ -1,6 +1,6 @@
 <?php
 
-header('Content-type: image/png');
+// header('Content-type: image/png');
 ini_set('display_errors', 1);
 require_once('../api.php');
 
@@ -230,8 +230,8 @@ $font2 = 'Tahoma.ttf';
 //-------------------------------------------------------------------------------------------------------------------------
 //На этом все почти:)
 // успешно загружено
-imagejpeg($im, NULL, 100);
-imagedestroy($im);
+// imagejpeg($im, NULL, 100);
+// imagedestroy($im);
 
 
 ?>
