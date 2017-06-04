@@ -91,7 +91,7 @@ function RoundingOff($_imagick, $width, $height) {
 }
 
 date_default_timezone_set("Europe/Moscow");
-$im = @ImageCreateFromPNG ($path.'header/header.png');
+$im = @ImageCreateFromPNG ($path.'header/header-2.png');
 
 
 
