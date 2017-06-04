@@ -28,4 +28,6 @@ function start() {
 	doRequest(url1);
 }
 
-setInterval(start(), 5000);
+setInterval(function() {
+  start();
+}, 5000);
