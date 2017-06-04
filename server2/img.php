@@ -12,7 +12,6 @@ $last_subscribe = getApiMethod('groups.getMembers', array(
             'fields' => 'photo_200',
             'access_token' => 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e6270a29967cb587'
         ));
-print_r(json_decode($last_subscribe, true));
 setLog('Ответ сервера #5 '.$last_subscribe);
 
 if($last_subscribe) {
@@ -92,7 +91,7 @@ function RoundingOff($_imagick, $width, $height) {
 }
 
 date_default_timezone_set("Europe/Moscow");
-$im = @ImageCreateFromPNG ($path.'header/header.png');
+$im = @ImageCreateFromPNG ('header/header.png');
 
 
 
@@ -173,7 +172,7 @@ else
 				$height_tmp = $height_tmp + 19;
 			}
 	}
-	
+
 //-------------------------------------------------------------------------------------------------------------------------
 
 // $file_name = 'header/last_subscribe.jpg';
