@@ -1,22 +1,22 @@
 <?php
 
-header('Content-type: image/png');
-// ini_set('display_errors', 1);
-require_once('config.php');
+// header('Content-type: image/png');
+ini_set('display_errors', 1);
 require_once('api.php');
+
 //Узнаем кто последний зашел в группу
 $last_subscribe = getApiMethod('groups.getMembers', array(
-            'group_id' => $GroupId,
+            'group_id' => '142528981',
             'sort' => 'time_desc',
             'count' => '1',
             'fields' => 'photo_200',
-            'access_token' => $token
+            'access_token' => 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e6270a29967cb587'
         ));
-
 setLog('Ответ сервера #5 '.$last_subscribe);
 
 if($last_subscribe) {
     $last_subscribe = json_decode($last_subscribe, true);
+
 
     $members_count = $last_subscribe['response']['count'];
     $last_subscribe_firstname = $last_subscribe['response']['users'][0]['first_name'];
@@ -63,7 +63,7 @@ if($wall_get) {
             $last = json_decode($last, true);
             sleep(5);
 	        foreach($last['response'] as $lat) {
-	            if($lat['from_id'] != '-'.$GroupId && $lat['from_id'] != '') {
+	            if($lat['from_id'] != ('-'.$GroupId) && $lat['from_id'] != '') {
 		            $last_coment = getApiMethod('users.get', array(
 			            'user_ids' => $lat['from_id'],
 			            'fields' => 'photo_100,first_name,last_name',
@@ -91,18 +91,19 @@ function RoundingOff($_imagick, $width, $height) {
 }
 
 date_default_timezone_set("Europe/Moscow");
-$im = @ImageCreateFromPNG ($path.'header/header-2.png');
+$im = @ImageCreateFromPNG ('header/header.png');
+
 
 
 // Аватар пользователя
 // Цвет текста
 // $white = @imagecolorallocate($im, 39,39,39);
-$white = @imagecolorallocate($im, 255,255,255);
+$white = @imagecolorallocate($im, 39,39,39);
 // Время
 $time = date("H:i");
 
 // Длинный многострочный текст, который нужно разбить на строки нужной нам длины 
-$text5 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'];
+$text5 = '';
 
 // Способ выравнивания текста
 //$align = "left";
@@ -174,57 +175,57 @@ else
 
 //-------------------------------------------------------------------------------------------------------------------------
 
-$file_name = 'header/last_subscribe.jpg';
-$last_subscribe_photo = new Imagick($file_name);
-RoundingOff($last_subscribe_photo, 99,99);
-file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
-$user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
-@imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-
-
-$file_name2 = 'header/last_coment_user.jpg';
-$last_coment_user_photo = new Imagick($file_name2);
-RoundingOff($last_coment_user_photo, 99,99);
-file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
-$user2 = @ImageCreateFromPNG($path.'header/last_coment_user.png');
-@imagecopy($im, $user2, 517.9, 103.5, 0, 0, 99, 99);
-@imagecopy($im, $user, 970.5, 103.5, 0, 0, 99, 99);
-// Вывод имени
-
-$text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
-
-$center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
-$center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
-
-// Adds the text to the image
-$font2 = 'Tahoma.ttf';
-@imagettftext($im, 28, 0, 1091, 185, $white, 'font/Gotham.ttf', $text);
-@imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
-
-//-------------------------------------------------------------------------------------------------------------------------
-
-// Вывод последнего пользователя
 // $file_name = 'header/last_subscribe.jpg';
 // $last_subscribe_photo = new Imagick($file_name);
-// RoundingOff($last_subscribe_photo, 140,140);
+// RoundingOff($last_subscribe_photo, 99,99);
 // file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
 // $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 // @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-// @imagecopy($im, $user, 725, 99, 0, 0, 140, 140);
+
+
+// $file_name2 = 'header/last_coment_user.jpg';
+// $last_coment_user_photo = new Imagick($file_name2);
+// RoundingOff($last_coment_user_photo, 99,99);
+// file_put_contents ('header/last_coment_user.png', $last_coment_user_photo);
+// $user2 = @ImageCreateFromPNG($path.'header/last_coment_user.png');
+// @imagecopy($im, $user2, 517.9, 103.5, 0, 0, 99, 99);
+// @imagecopy($im, $user, 970.5, 103.5, 0, 0, 99, 99);
 // // Вывод имени
 
 // $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
-// $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
 
 // $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 // $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
 
 // // Adds the text to the image
 // $font2 = 'Tahoma.ttf';
-// @imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
+// @imagettftext($im, 28, 0, 1091, 185, $white, 'font/Gotham.ttf', $text);
+// @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+// Вывод последнего пользователя
+$file_name = 'header/last_subscribe.jpg';
+$last_subscribe_photo = new Imagick($file_name);
+RoundingOff($last_subscribe_photo, 140,140);
+file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
+$user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
+@imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
+@imagecopy($im, $user, 725, 99, 0, 0, 140, 140);
+// Вывод имени
+
+$text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
+$text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
+
+$center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
+$center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
+
+// Adds the text to the image
+$font2 = 'Tahoma.ttf';
+@imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
 // @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
 // Вывод фамилии
-// @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
+@imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //-------------------------------------------------------------------------------------------------------------------------
 //На этом все почти:)
 // успешно загружено
