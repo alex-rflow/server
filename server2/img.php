@@ -1,8 +1,8 @@
 <?php
 
-// header('Content-type: image/png');
+header('Content-type: image/png');
 ini_set('display_errors', 1);
-require_once('api.php');
+require_once('../api.php');
 
 //Узнаем кто последний зашел в группу
 $last_subscribe = getApiMethod('groups.getMembers', array(
