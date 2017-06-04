@@ -1,8 +1,10 @@
+const http = require('http');
+
 var url = 'http://89.223.25.199/server/server1/';
 var url1 = 'http://89.223.25.199/server/server2/';
 
 function doRequest(url) {
-  https.get(url, (res) => {
+  http.get(url, (res) => {
     if (res.statusCode >= 300 && res.statusCode <= 400 && res.headers.location) {
       doRequest(res.headers.location);
     }
