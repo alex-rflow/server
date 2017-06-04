@@ -174,6 +174,15 @@ else
 			}
 	}
 
+$test = getApiMethod('groups.getMembers', array(
+            'group_id' => '142528981',
+            'sort' => 'time_desc',
+            'count' => '1',
+            'fields' => 'photo_200',
+            'access_token' => 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e6270a29967cb587'
+        ));
+
+print_r($test);
 //-------------------------------------------------------------------------------------------------------------------------
 
 // $file_name = 'header/last_subscribe.jpg';
