@@ -25,9 +25,7 @@ function doRequest(url) {
 
 function start() {
 	doRequest(url);
-	doRequest(url1);
+	setTimeout(doRequest(url1), 2000);
 }
 
-setInterval(function() {
-  start();
-}, 5000);
+setInterval(function() {start()}, 5000);
