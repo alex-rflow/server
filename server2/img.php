@@ -1,6 +1,6 @@
 <?php
 
-// header('Content-type: image/png');
+header('Content-type: image/png');
 ini_set('display_errors', 1);
 require_once('../api.php');
 
@@ -173,16 +173,7 @@ else
 				$height_tmp = $height_tmp + 19;
 			}
 	}
-
-$test = getApiMethod('groups.getMembers', array(
-            'group_id' => '142528981',
-            'sort' => 'time_desc',
-            'count' => '1',
-            'fields' => 'photo_200',
-            'access_token' => 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e6270a29967cb587'
-        ));
-
-print_r($test);
+	
 //-------------------------------------------------------------------------------------------------------------------------
 
 // $file_name = 'header/last_subscribe.jpg';
@@ -214,33 +205,33 @@ print_r($test);
 
 //-------------------------------------------------------------------------------------------------------------------------
 
-// // Вывод последнего пользователя
-// $file_name = 'header/last_subscribe.jpg';
-// $last_subscribe_photo = new Imagick($file_name);
-// RoundingOff($last_subscribe_photo, 140,140);
-// file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
-// $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
-// @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
-// @imagecopy($im, $user, 725, 99, 0, 0, 140, 140);
-// // Вывод имени
+// Вывод последнего пользователя
+$file_name = 'header/last_subscribe.jpg';
+$last_subscribe_photo = new Imagick($file_name);
+RoundingOff($last_subscribe_photo, 140,140);
+file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
+$user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
+@imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
+@imagecopy($im, $user, 725, 99, 0, 0, 140, 140);
+// Вывод имени
 
-// $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
-// $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
+$text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
+$text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
 
-// $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
-// $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
+$center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
+$center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
 
-// // Adds the text to the image
-// $font2 = 'Tahoma.ttf';
-// @imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
-// @imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
-// // Вывод фамилии
-// @imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
+// Adds the text to the image
+$font2 = 'Tahoma.ttf';
+@imagettftext($im, 20, 0, $center, 350, $white, 'font/Tahoma.ttf', $text);
+@imagettftext($im, 20, 0, $center2, 380, $white, 'font/BebasNeue Regular.ttf', $text2);
+// Вывод фамилии
+@imagettftext($im, 20, 0, 1450, 130, $white, $path.'font/BebasNeue Regular.ttf',$UsersLastName);
 //-------------------------------------------------------------------------------------------------------------------------
 //На этом все почти:)
 // успешно загружено
-// imagejpeg($im, NULL, 100);
-// imagedestroy($im);
+imagejpeg($im, NULL, 100);
+imagedestroy($im);
 
 
 ?>
