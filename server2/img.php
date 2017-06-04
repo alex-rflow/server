@@ -1,6 +1,6 @@
 <?php
 
-// header('Content-type: image/png');
+header('Content-type: image/png');
 ini_set('display_errors', 1);
 require_once('../api.php');
 
