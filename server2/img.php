@@ -3,31 +3,29 @@
 // header('Content-type: image/png');
 ini_set('display_errors', 1);
 require_once('api.php');
-$last_subscribe1;
-$last_coment;
 
 //Узнаем кто последний зашел в группу
-$last_subscribe1 = getApiMethod('groups.getMembers', array(
+$last_subscribe = getApiMethod('groups.getMembers', array(
             'group_id' => '142528981',
             'sort' => 'time_desc',
             'count' => '1',
             'fields' => 'photo_200',
             'access_token' => 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e6270a29967cb587'
         ));
-print_r(json_decode($last_subscribe1, true));
-setLog('Ответ сервера #5 '.$last_subscribe1);
+print_r(json_decode($last_subscribe, true));
+setLog('Ответ сервера #5 '.$last_subscribe);
 
-if($last_subscribe1) {
-    $last_subscribe1 = json_decode($last_subscribe1, true);
+if($last_subscribe) {
+    $last_subscribe = json_decode($last_subscribe, true);
 
 
-    $members_count = $last_subscribe1['response']['count'];
-    $last_subscribe1_firstname = $last_subscribe1['response']['users'][0]['first_name'];
-    $last_subscribe1_lastname = $last_subscribe1['response']['users'][0]['last_name'];
-    $last_subscribe1_photo = $last_subscribe1['response']['users'][0]['photo_200'];
+    $members_count = $last_subscribe['response']['count'];
+    $last_subscribe_firstname = $last_subscribe['response']['users'][0]['first_name'];
+    $last_subscribe_lastname = $last_subscribe['response']['users'][0]['last_name'];
+    $last_subscribe_photo = $last_subscribe['response']['users'][0]['photo_200'];
     // Скачиваем фото
-    if(!empty($last_subscribe1_firstname) && !empty($last_subscribe1_lastname) && !empty($last_subscribe1_photo)){
-        DownloadImages($last_subscribe1_photo, 'header/last_subscribe1.jpg');
+    if(!empty($last_subscribe_firstname) && !empty($last_subscribe_lastname) && !empty($last_subscribe_photo)){
+        DownloadImages($last_subscribe_photo, 'header/last_subscribe.jpg');
     }
 
 }
@@ -178,11 +176,11 @@ else
 
 //-------------------------------------------------------------------------------------------------------------------------
 
-// $file_name = 'header/last_subscribe1.jpg';
-// $last_subscribe1_photo = new Imagick($file_name);
-// RoundingOff($last_subscribe1_photo, 99,99);
-// file_put_contents ('header/last_subscribe1.png', $last_subscribe1_photo);
-// $user = @ImageCreateFromPNG($path.'header/last_subscribe1.png');
+// $file_name = 'header/last_subscribe.jpg';
+// $last_subscribe_photo = new Imagick($file_name);
+// RoundingOff($last_subscribe_photo, 99,99);
+// file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
+// $user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 // @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 
 
@@ -195,7 +193,7 @@ else
 // @imagecopy($im, $user, 970.5, 103.5, 0, 0, 99, 99);
 // // Вывод имени
 
-// $text = $last_subscribe1_firstname . ' ' . $last_subscribe1_lastname;
+// $text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
 
 // $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
 // $center2 = (imagesx($im)/2) - (5*iconv_strlen($text2,'UTF-8'));
@@ -208,16 +206,16 @@ else
 //-------------------------------------------------------------------------------------------------------------------------
 
 // Вывод последнего пользователя
-$file_name = 'header/last_subscribe1.jpg';
-$last_subscribe1_photo = new Imagick($_SERVER['DOCUMENT_ROOT'] . '/server/server2/' . $file_name);
-RoundingOff($last_subscribe1_photo, 140,140);
-file_put_contents ('header/last_subscribe1.png', $last_subscribe1_photo);
-$user = @ImageCreateFromPNG($path.'header/last_subscribe1.png');
+$file_name = 'header/last_subscribe.jpg';
+$last_subscribe_photo = new Imagick($file_name);
+RoundingOff($last_subscribe_photo, 140,140);
+file_put_contents ('header/last_subscribe.png', $last_subscribe_photo);
+$user = @ImageCreateFromPNG($path.'header/last_subscribe.png');
 @imagettftext($im, 30, 0, 45, 350, $white, $path.'font/BebasNeue Regular.ttf',$time);
 @imagecopy($im, $user, 725, 99, 0, 0, 140, 140);
 // Вывод имени
 
-$text = $last_subscribe1_firstname . ' ' . $last_subscribe1_lastname;
+$text = $last_subscribe_firstname . ' ' . $last_subscribe_lastname;
 $text2 = $last_coment['response'][0]['first_name'] . ' ' . $last_coment['response'][0]['last_name'] . ' - ' . $last_text;
 
 $center = (imagesx($im)/2) - (7.5*iconv_strlen($text,'UTF-8'));
