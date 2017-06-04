@@ -209,7 +209,7 @@ else
 
 // Вывод последнего пользователя
 $file_name = 'header/last_subscribe1.jpg';
-$last_subscribe1_photo = new Imagick($file_name);
+$last_subscribe1_photo = new Imagick($_SERVER['DOCUMENT_ROOT'] . $file_name);
 RoundingOff($last_subscribe1_photo, 140,140);
 file_put_contents ('header/last_subscribe1.png', $last_subscribe1_photo);
 $user = @ImageCreateFromPNG($path.'header/last_subscribe1.png');
