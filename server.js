@@ -21,3 +21,5 @@ function start() {
 	doRequest(url);
 	doRequest(url1);
 }
+
+setInterval(start(), 5000);
