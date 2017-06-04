@@ -2,7 +2,6 @@
 
 // header('Content-type: image/png');
 ini_set('display_errors', 1);
-set_error_handler('myHandlerForMinorErrors', E_NOTICE | E_STRICT);
 error_reporting( error_reporting() & ~E_NOTICE );
 require_once('api.php');
 
