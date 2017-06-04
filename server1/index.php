@@ -16,6 +16,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 $result = json_decode(curl_exec($ch),true);
+sleep(5);
 $safe = file_get_contents("https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=".$result['hash']."&photo=".$result['photo']."&access_token=".$token);
 print_r('Ok - server 1 upload');
 // Ошибка случилась из за того, что мы не написали саму картинку img.php
