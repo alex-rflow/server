@@ -14,7 +14,7 @@ $last_subscribe = getApiMethod('groups.getMembers', array(
         ));
 
 setLog('Ответ сервера #5 '.$last_subscribe);
-
+sleep(5);
 if($last_subscribe) {
     $last_subscribe = json_decode($last_subscribe, true);
 
@@ -38,7 +38,7 @@ $wall_get = getApiMethod('wall.get', array(
     'count' => '100',
     'access_token' => $token
 ));
-
+sleep(5);
 if($wall_get) {
     $wall_get = json_decode($wall_get, true);
     //checkApiError($wall_get);
