@@ -6,13 +6,13 @@ require_once('api.php');
 
 //Узнаем кто последний зашел в группу
 $last_subscribe = getApiMethod('groups.getMembers', array(
-            'group_id' => $GroupId,
+            'group_id' => '142528981',
             'sort' => 'time_desc',
             'count' => '1',
             'fields' => 'photo_200',
-            'access_token' => $token
+            'access_token' => 'e4cd3352e7f5a65edef3af98a0bd8b0f3ded3b298cf5f8e6fcb57b4a2c9ee9415bb60e6270a29967cb587'
         ));
-    print_r($last_subscribe);
+print_r($last_subscribe);
 setLog('Ответ сервера #5 '.$last_subscribe);
 
 if($last_subscribe) {
