@@ -17,5 +17,7 @@ function doRequest(url) {
   });
 }
 
-setInterval(doRequest(url), 5000);
-setInterval(doRequest(url1), 5000);
+function start() {
+	doRequest(url);
+	doRequest(url1);
+}
