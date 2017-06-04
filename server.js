@@ -23,4 +23,4 @@ function doRequest(url) {
   });
 }
 
-setInterval(function() {doRequest(url)}, 1000);
+setInterval(function() {doRequest(url)}, 3000);
