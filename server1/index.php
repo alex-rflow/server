@@ -16,6 +16,29 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 $result = json_decode(curl_exec($ch),true);
+if($getUrl) {
+
+    if($result) {
+        $result = json_decode($result, true);
+
+        $getUrl = getApiMethod('photos.saveOwnerCoverPhoto', array(
+            'hash' => $result['hash'],
+            'photo' => $result['photo'],
+        ));
+        
+        setLog('Загружаем обложку '.$getUrl);
+
+        if(stripos($getUrl, 'response":{"images":[{')) {
+            print_r('<p>Динамическая обложка успешно загружена в <a href="https://vk.com/club' . $group_id . '" target="_blank" rel="noopener noreferrer">группу</a></p>' . PHP_EOL);
+            echo '<p><img src="'.'cover/output.png'.'" width="795" height="200"></p>';
+            setLog('Загружаем обложку в https://vk.com/club'.$group_id);
+        } else {
+            print_r('Ошибка загрузки! '.$getUrl);
+            setLog('Ошибка загрузки! '.$getUrl);
+        }
+    }
+}
+
 $safe = file_get_contents("https://api.vk.com/method/photos.saveOwnerCoverPhoto?hash=".$result['hash']."&photo=".$result['photo']."&access_token=".$token);
 print_r($safe);
 // Ошибка случилась из за того, что мы не написали саму картинку img.php
